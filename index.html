@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Biswaranjan Behera | Experimental Neutrino Physics</title>
+  <meta name="description" content="Ramanujan Fellow at IISc Bangalore. Experimental neutrino physicist working on DUNE, ICARUS, and SBND." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══ CANVAS BACKGROUND ══ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ══ NAVBAR ══ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="nav-nu">ν</span>BB
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#mentorship">Mentorship</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Ramanujan Fellow · IISc Bangalore
+      </div>
+      <h1 class="hero-name">Dr. Biswaranjan<br/><em>Behera</em></h1>
+      <p class="hero-tagline">
+        <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
+      </p>
+      <p class="hero-bio">
+        Experimental neutrino physicist probing the fundamental mysteries of matter — 
+        from cryogenic detector instrumentation to oscillation physics with 
+        <span class="highlight">DUNE</span>, <span class="highlight">ICARUS</span>, and <span class="highlight">SBND</span>.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:biswaranjanb@iisc.ac.in" class="btn btn-primary">
+          <i class="fas fa-envelope"></i> Contact
+        </a>
+        <a href="#" class="btn btn-outline" id="cvDownload">
+          <i class="fas fa-file-pdf"></i> Download CV
+        </a>
+        <a href="https://scholar.google.com" target="_blank" class="btn btn-icon" aria-label="Google Scholar">
+          <i class="fas fa-graduation-cap"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="btn btn-icon" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://inspire-hep.net" target="_blank" class="btn btn-icon" aria-label="INSPIRE HEP">
+          <i class="fas fa-atom"></i>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">56+</span>
+          <span class="stat-label">Publications</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">3000+</span>
+          <span class="stat-label">Citations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">23+</span>
+          <span class="stat-label">Students Mentored</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Experiments</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-detector">
+        <svg viewBox="0 0 300 300" class="detector-svg" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring -->
+          <circle cx="150" cy="150" r="138" fill="none" stroke="var(--accent)" stroke-width="1.5" opacity="0.3"/>
+          <circle cx="150" cy="150" r="110" fill="none" stroke="var(--accent)" stroke-width="0.8" stroke-dasharray="5 4" opacity="0.2"/>
+          <!-- νe strand -->
+          <path d="M40,150 C55,150 60,124 75,124 C90,124 95,176 110,176 C125,176 130,124 145,124 C160,124 165,170 175,167 C188,163 195,150 210,150" fill="none" stroke="#4a9eff" stroke-width="2" stroke-linecap="round" class="svg-strand"/>
+          <!-- νμ strand -->
+          <path d="M40,150 C55,150 59,176 74,176 C89,176 94,124 109,124 C124,124 129,176 144,176 C159,176 165,130 175,134 C188,138 195,150 210,150" fill="none" stroke="#3dd68c" stroke-width="2" stroke-linecap="round" class="svg-strand"/>
+          <!-- ντ strand -->
+          <path d="M40,150 C56,150 62,108 80,108 C98,108 104,192 122,192 C140,192 146,112 162,118 C176,124 190,148 210,150" fill="none" stroke="#b57fff" stroke-width="2" stroke-linecap="round" class="svg-strand"/>
+          <!-- Single detected -->
+          <path d="M210,150 C222,150 228,136 238,136 C248,136 252,164 260,160" fill="none" stroke="#b57fff" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Source dot -->
+          <circle cx="40" cy="150" r="4" fill="#4a9eff" class="pulse-dot"/>
+          <!-- Merge dot -->
+          <circle cx="210" cy="150" r="3" fill="#b57fff" opacity="0.7"/>
+          <!-- Flavor labels -->
+          <text x="68" y="116" font-family="Georgia,serif" font-size="10" fill="#4a9eff" opacity="0.8">νe</text>
+          <text x="68" y="185" font-family="Georgia,serif" font-size="10" fill="#3dd68c" opacity="0.8">νμ</text>
+          <text x="60" y="202" font-family="Georgia,serif" font-size="10" fill="#b57fff" opacity="0.8">ντ</text>
+          <!-- Center text -->
+          <text x="150" y="260" font-family="Georgia,serif" font-size="13" fill="var(--accent)" opacity="0.6" text-anchor="middle" font-weight="700">νIDEA</text>
+        </svg>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+    </div>
+  </section>
+
+  <!-- ══ NEWS TICKER ══ -->
+  <div class="news-bar" id="news">
+    <div class="news-label"><i class="fas fa-bolt"></i> Latest</div>
+    <div class="news-track-wrapper">
+      <div class="news-track" id="newsTrack">
+        <span class="news-item"><strong>Apr 2026</strong> — Featured in Fermilab News: DUNE collaborators advance breakthrough power-over-fiber technology</span>
+        <span class="news-sep">·</span>
+        <span class="news-item"><strong>Mar 2026</strong> — IISc Open Day 2026: CosmicWatch detector showcase with 3D-printed CMS/ATLAS models</span>
+        <span class="news-sep">·</span>
+        <span class="news-item"><strong>Feb 2026</strong> — Orissa Physical Society Young Scientist Award (Experiment) 2025</span>
+        <span class="news-sep">·</span>
+        <span class="news-item"><strong>Feb 2026</strong> — Bohr's Lecture at Fakir Mohan University: "The Secret Life of Ghost Particle"</span>
+        <span class="news-sep">·</span>
+        <span class="news-item"><strong>Jan 2026</strong> — TIPP 2026 talk: Power-over-Fiber Development for DUNE VD Photon Detection System</span>
+        <span class="news-sep">·</span>
+        <span class="news-item"><strong>2025</strong> — Ramanujan Fellowship awarded by ANRF, Government of India (2025–2030)</span>
+        <span class="news-sep">·</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01 / About</span>
+        <h2>Chasing Ghost Particles</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="lead">
+            I am a <strong>Ramanujan Fellow</strong> at the Center for High Energy Physics (CHEP), 
+            Indian Institute of Science (IISc), Bangalore — one of India's most prestigious research fellowships.
+          </p>
+          <p>
+            My research spans the full spectrum of experimental neutrino physics: from developing cryogenic 
+            instrumentation and photon detection systems to precision measurements of neutrino oscillations and 
+            interactions. I am a Principal Investigator in the <strong>SBND</strong>, <strong>ICARUS</strong>, 
+            and <strong>DUNE</strong> collaborations at Fermilab.
+          </p>
+          <p>
+            A key focus of my current work is the pioneering development of <strong>Power-over-Fiber (PoF)</strong> 
+            technology — a breakthrough approach to powering electronics in harsh cryogenic environments, 
+            enabling next-generation photon detection for low-energy neutrino physics.
+          </p>
+          <p>
+            Beyond research, I am deeply committed to <strong>mentorship and outreach</strong>, 
+            having guided over 23 students across PhD, MSc, and undergraduate levels across four countries.
+          </p>
+          <a href="#contact" class="btn btn-primary" style="margin-top:1rem;">
+            <i class="fas fa-flask"></i> Collaborate With Me
+          </a>
+        </div>
+        <div class="about-interests">
+          <h3>Research Interests</h3>
+          <div class="interest-grid">
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-atom"></i></div>
+              <div>
+                <strong>Neutrino Oscillations</strong>
+                <span>CP violation, mass hierarchy, sterile neutrinos</span>
+              </div>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-lightbulb"></i></div>
+              <div>
+                <strong>Photon Detection Systems</strong>
+                <span>SiPMs, PMTs, scintillation light in LArTPCs</span>
+              </div>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-temperature-low"></i></div>
+              <div>
+                <strong>Cryogenic Instrumentation</strong>
+                <span>Power-over-Fiber, cryogenics R&D lab</span>
+              </div>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-brain"></i></div>
+              <div>
+                <strong>Machine Learning in HEP</strong>
+                <span>Deep CNNs, event reconstruction, PID</span>
+              </div>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-star"></i></div>
+              <div>
+                <strong>Supernova Neutrinos</strong>
+                <span>Core-collapse detection, low-energy physics</span>
+              </div>
+            </div>
+            <div class="interest-card">
+              <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
+              <div>
+                <strong>Cosmic Background Rejection</strong>
+                <span>CRT, TPC, PMT combined techniques</span>
+              </div>
+            </div>
+          </div>
+          <div class="affiliations">
+            <h3>Affiliated Experiments</h3>
+            <div class="exp-tags">
+              <span class="exp-tag dune">DUNE</span>
+              <span class="exp-tag icarus">ICARUS</span>
+              <span class="exp-tag sbnd">SBND</span>
+              <span class="exp-tag nova">NOvA</span>
+              <span class="exp-tag micro">MicroBooNE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCE TIMELINE ══ -->
+  <section id="experience" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02 / Career</span>
+        <h2>Academic Journey</h2>
+      </div>
+      <div class="timeline">
+
+        <div class="timeline-item" data-side="right">
+          <div class="timeline-dot current"></div>
+          <div class="timeline-card">
+            <div class="timeline-period current-period">Sep 2025 – Present</div>
+            <h3>Ramanujan Fellow</h3>
+            <h4><i class="fas fa-university"></i> Indian Institute of Science (IISc), Bangalore, India</h4>
+            <ul>
+              <li>Establishing cryogenics laboratory for Power-over-Fiber R&D for next-generation photon detection</li>
+              <li>Built CosmicWatch detector showcased at IISc Open Day 2026</li>
+              <li>PI in SBND, ICARUS, and DUNE collaborations; mentoring MSc & PhD students</li>
+            </ul>
+            <div class="card-tags">
+              <span>PoF Technology</span><span>Cryogenics Lab</span><span>PI</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-side="left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">Mar 2024 – Sep 2025</div>
+            <h3>Postdoctoral Researcher</h3>
+            <h4><i class="fas fa-flask"></i> South Dakota School of Mines & Technology, USA</h4>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. David A. Martinez Caicedo</p>
+            <ul>
+              <li>Key contributor in PoF technology R&D for DUNE Vertical Drift Photon Detection System</li>
+              <li>Led installation of PoF laser housing unit in ProtoDUNE-VD at CERN</li>
+              <li>Led fabrication of first production-style 8-channel Laser Housing Unit</li>
+              <li>Featured in Fermilab News for PoF technology breakthrough</li>
+            </ul>
+            <div class="card-tags">
+              <span>DUNE VD</span><span>ProtoDUNE-VD</span><span>CERN</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-side="right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">Sep 2022 – Mar 2024</div>
+            <h3>Adjunct Assistant Scientist</h3>
+            <h4><i class="fas fa-microscope"></i> University of Florida / Fermilab, USA</h4>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. Heather Ray</p>
+            <ul>
+              <li>Novel SBND Time PRISM simulation — proposed combined stroboscopic method</li>
+              <li>Key contributor to PMT installation and commissioning of SBND detector (120 PMTs)</li>
+              <li>Characterizing SiPMs at room and cryogenic temperatures for DUNE PDS</li>
+            </ul>
+            <div class="card-tags">
+              <span>SBND</span><span>SiPM</span><span>Time PRISM</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-side="left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">Aug 2018 – Sep 2022</div>
+            <h3>Postdoctoral Researcher</h3>
+            <h4><i class="fas fa-atom"></i> Colorado State University / Fermilab, USA</h4>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. Robert J. Wilson</p>
+            <ul>
+              <li><strong>First Run Coordinator</strong> for the ICARUS experiment at Fermilab</li>
+              <li>Led CRT installation, commissioning, and database architecture</li>
+              <li>Led cosmic background rejection — justified and secured overburden installation</li>
+              <li>Developed CRT hit/track reconstruction algorithms from scratch</li>
+            </ul>
+            <div class="card-tags">
+              <span>ICARUS</span><span>Run Coordinator</span><span>CRT</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item" data-side="right">
+          <div class="timeline-dot phd"></div>
+          <div class="timeline-card">
+            <div class="timeline-period">2015 – Oct 2018</div>
+            <h3>PhD in Physics</h3>
+            <h4><i class="fas fa-graduation-cap"></i> IIT Hyderabad / Fermilab, USA</h4>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Supervisors: Prof. Anjan K. Giri & Dr. Jonathan M. Paley</p>
+            <ul>
+              <li>Thesis: Double Differential Inclusive νμ CC Cross-section in the NOvA Near Detector</li>
+              <li>Developed deep CNN-based νμ CC selection, novel muon PID algorithm</li>
+              <li>NOvA DAQ software release manager; developed time-dependent calibration method</li>
+            </ul>
+            <div class="card-tags">
+              <span>NOvA</span><span>Deep Learning</span><span>Cross-section</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESEARCH PROJECTS ══ -->
+  <section id="research" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03 / Research</span>
+        <h2>Key Projects</h2>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card featured">
+          <div class="project-icon"><i class="fas fa-broadcast-tower"></i></div>
+          <div class="project-tag">DUNE · Active</div>
+          <h3>Power-over-Fiber (PoF) Technology</h3>
+          <p>Pioneering development of PoF for DUNE Vertical Drift Photon Detection System — transmitting power optically via fiber to electronics in the cryogenic environment, eliminating electromagnetic interference and enabling next-generation low-energy neutrino detection.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> First production 8-channel LHU fabricated</span>
+            <span><i class="fas fa-check"></i> Installed & commissioned at CERN ProtoDUNE-VD</span>
+            <span><i class="fas fa-check"></i> Featured in Fermilab News</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-satellite-dish"></i></div>
+          <div class="project-tag">ICARUS · Completed</div>
+          <h3>Cosmic Background Rejection</h3>
+          <p>Developed comprehensive framework for cosmogenic background suppression using combined CRT-TPC-PMT timing methods. Led to Fermilab-approved concrete overburden installation, significantly enhancing detector sensitivity.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> First ICARUS Run Coordinator</span>
+            <span><i class="fas fa-check"></i> Overburden approval secured</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-wave-square"></i></div>
+          <div class="project-tag">DUNE · Active</div>
+          <h3>Pion & Muon Capture at Rest</h3>
+          <p>Feasibility study for detecting pion and muon capture-at-rest events in ProtoDUNE-VD. Proposed dedicated low-energy beam run at CERN SPS. Developing event selection and signal identification strategies.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> Feasibility demonstrated</span>
+            <span><i class="fas fa-check"></i> CERN SPS beam run proposed</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-meteor"></i></div>
+          <div class="project-tag">DUNE · Completed</div>
+          <h3>Supernova Neutrino Calorimetry</h3>
+          <p>Developed calorimetric energy estimation using liquid argon scintillation light, demonstrating improved resolution for MeV-range supernova neutrinos. Key contribution to DUNE Technical Design Report.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> Featured in DUNE TDR</span>
+            <span><i class="fas fa-check"></i> 208+ citations</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-clock"></i></div>
+          <div class="project-tag">SBND · Completed</div>
+          <h3>SBND Time PRISM</h3>
+          <p>Proposed novel combined "stroboscopic" + SBND-PRISM method to select varying neutrino energy spectra from the same on-axis detector — a concept to validate in SBND before deploying at DUNE.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> Novel simulation demonstrated</span>
+            <span><i class="fas fa-check"></i> 120 PMTs installed</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="project-tag">NOvA · PhD Thesis</div>
+          <h3>νμ CC Cross-section Measurement</h3>
+          <p>Led first double-differential inclusive muon neutrino charged-current cross-section measurement in NOvA Near Detector using deep convolutional networks and novel muon PID, minimizing systematic uncertainties.</p>
+          <div class="project-highlights">
+            <span><i class="fas fa-check"></i> Deep CNN selection</span>
+            <span><i class="fas fa-check"></i> 34+ citations</span>
+          </div>
+          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PUBLICATIONS ══ -->
+  <section id="publications" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04 / Publications</span>
+        <h2>Selected Publications</h2>
+        <p class="section-subtitle">8 peer-reviewed journal papers with significant contributions · 12 proceedings · 48 collaboration papers</p>
+      </div>
+
+      <div class="pub-filters">
+        <button class="pub-filter active" data-filter="all">All</button>
+        <button class="pub-filter" data-filter="journal">Journals</button>
+        <button class="pub-filter" data-filter="dune">DUNE</button>
+        <button class="pub-filter" data-filter="icarus">ICARUS</button>
+        <button class="pub-filter" data-filter="nova">NOvA</button>
+      </div>
+
+      <div class="pub-list" id="pubList">
+
+        <div class="pub-item" data-category="journal">
+          <div class="pub-meta">
+            <span class="pub-year">2025</span>
+            <span class="pub-journal">JINST</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 5</span>
+          </div>
+          <div class="pub-content">
+            <h4>Design and Implementation of the Cosmic Ray Tagger System for the ICARUS detector at FNAL</h4>
+            <p class="pub-authors">A. Aduszkiewicz, L. Bagby, <strong>B. Behera</strong> et al. (ICARUS Collaboration)</p>
+            <p class="pub-ref">JINST 20 (2025) 04, T04002</p>
+            <div class="pub-contribution">
+              Led CRT installation, commissioning, first Run Coordinator, cosmic background rejection algorithms
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> JINST</a>
+            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+        <div class="pub-item" data-category="journal dune">
+          <div class="pub-meta">
+            <span class="pub-year">2024</span>
+            <span class="pub-journal">JINST</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 11</span>
+          </div>
+          <div class="pub-content">
+            <h4>Characterization and Novel Application of Power Over Fiber for Electronics in a Harsh Environment</h4>
+            <p class="pub-authors">M. A. Arroyavea, <strong>B. Behera</strong> et al.</p>
+            <p class="pub-ref">JINST 19 (2024) 10, P10019</p>
+            <div class="pub-contribution">
+              Led QA/QC protocols, laser characterization, OPC testing at cryogenic temperatures
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> JINST</a>
+            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+        <div class="pub-item" data-category="journal icarus">
+          <div class="pub-meta">
+            <span class="pub-year">2023</span>
+            <span class="pub-journal">Eur.Phys.J.C</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 81</span>
+          </div>
+          <div class="pub-content">
+            <h4>ICARUS at the Fermi National Accelerator Laboratory Short-Baseline Neutrino Program: Initial Operation</h4>
+            <p class="pub-authors">P. Abratenko, <strong>B. Behera</strong> et al. (ICARUS Collaboration)</p>
+            <p class="pub-ref">Eur.Phys.J.C 83 (2023) 6, 467</p>
+            <div class="pub-contribution">
+              Cosmic background study, CRT side wall installation, channel mapping, hardware database
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> EPJC</a>
+            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+        <div class="pub-item" data-category="journal nova">
+          <div class="pub-meta">
+            <span class="pub-year">2023</span>
+            <span class="pub-journal">Phys.Rev.D</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 34</span>
+          </div>
+          <div class="pub-content">
+            <h4>Measurement of the Double-Differential Muon-neutrino Charged-Current Inclusive Cross Section in the NOvA Near Detector</h4>
+            <p class="pub-authors">M. A. Acero et al. (NOvA Collaboration)</p>
+            <p class="pub-ref">Phys.Rev.D 107 (2023) 5, 052011</p>
+            <div class="pub-contribution">
+              Led entire analysis — deep CNN selection, muon PID, flux calculation, background estimation (PhD thesis)
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> PRD</a>
+            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+        <div class="pub-item" data-category="journal dune">
+          <div class="pub-meta">
+            <span class="pub-year">2021</span>
+            <span class="pub-journal">Eur.Phys.J.C</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 208</span>
+          </div>
+          <div class="pub-content">
+            <h4>Supernova Neutrino Burst Detection with the Deep Underground Neutrino Experiment</h4>
+            <p class="pub-authors">B. Abi et al. (DUNE Collaboration)</p>
+            <p class="pub-ref">Eur.Phys.J.C 81 (2021) 5, 423</p>
+            <div class="pub-contribution">
+              Developed calorimetric energy estimation for low-energy supernova neutrinos using scintillation light
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> EPJC</a>
+            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+        <div class="pub-item" data-category="journal dune">
+          <div class="pub-meta">
+            <span class="pub-year">2020</span>
+            <span class="pub-journal">JINST (TDR)</span>
+            <span class="pub-citations"><i class="fas fa-quote-right"></i> 865</span>
+          </div>
+          <div class="pub-content">
+            <h4>DUNE Far Detector Technical Design Report, Volume II</h4>
+            <p class="pub-authors">B. Abi et al. (DUNE Collaboration)</p>
+            <p class="pub-ref">arXiv: 2002.03005</p>
+            <div class="pub-contribution">
+              Algorithm for calorimetric energy estimation; improved energy resolution for supernova/solar neutrinos
+            </div>
+          </div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2002.03005" class="pub-link" target="_blank"><i class="fas fa-file-alt"></i> arXiv</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pub-more">
+        <a href="https://inspire-hep.net" target="_blank" class="btn btn-outline">
+          <i class="fas fa-external-link-alt"></i> Full Publication List on INSPIRE-HEP
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ AWARDS ══ -->
+  <section id="awards" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05 / Recognition</span>
+        <h2>Awards & Honors</h2>
+      </div>
+      <div class="awards-grid">
+
+        <div class="award-card gold">
+          <div class="award-year">2025–2030</div>
+          <div class="award-icon"><i class="fas fa-medal"></i></div>
+          <h3>Ramanujan Fellowship</h3>
+          <p>Indian Institute of Science, Bangalore</p>
+          <span class="award-org">ANRF, Government of India</span>
+          <div class="award-desc">Prestigious 5-year research fellowship with independent funding for scientific research</div>
+        </div>
+
+        <div class="award-card silver">
+          <div class="award-year">2025/2026</div>
+          <div class="award-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Young Scientist Award</h3>
+          <p>Experiment Category</p>
+          <span class="award-org">Orissa Physical Society</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2024</div>
+          <div class="award-icon"><i class="fas fa-star"></i></div>
+          <h3>EDIA Ambassador 2023</h3>
+          <p>Equity, Diversity, Inclusion & Accessibility</p>
+          <span class="award-org">Fermilab, USA</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2023–2024</div>
+          <div class="award-icon"><i class="fas fa-users"></i></div>
+          <h3>APS Career Mentoring Fellow</h3>
+          <p>Implicit bias & mentor training</p>
+          <span class="award-org">American Physical Society, USA</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2023</div>
+          <div class="award-icon"><i class="fas fa-dollar-sign"></i></div>
+          <h3>URA Visiting Scholars Program</h3>
+          <p>~$10,000 for PMT Commissioning at SBND</p>
+          <span class="award-org">URA, USA</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2018</div>
+          <div class="award-icon"><i class="fas fa-certificate"></i></div>
+          <h3>Certificate of Research Excellence</h3>
+          <p>Outstanding PhD research performance</p>
+          <span class="award-org">IIT Hyderabad, India</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2011</div>
+          <div class="award-icon"><i class="fas fa-award"></i></div>
+          <h3>Sabitri Memorial Gold Medal</h3>
+          <p>Best Graduate in Science</p>
+          <span class="award-org">Upendra Nath College, India</span>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2015–2018</div>
+          <div class="award-icon"><i class="fas fa-globe"></i></div>
+          <h3>DST/DOE Research Scholar</h3>
+          <p>Indian Participation in Neutrino Experiments at Fermilab</p>
+          <span class="award-org">DST India / DOE USA</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LEADERSHIP ══ -->
+  <section class="section section-alt" id="leadership">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">06 / Leadership</span>
+        <h2>Service & Leadership</h2>
+      </div>
+      <div class="leadership-grid">
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-gavel"></i></div>
+          <h3>Chair, Fermilab Users Meeting 2023</h3>
+          <p>Elected Chair of the Users Meeting Subcommittee. Organized the 56th Annual Fermilab Users Meeting 2023. Led engagement with U.S. Senate and House representatives to advocate for HEP research funding.</p>
+          <span class="l-period">2022 – 2023 · Fermilab Users Executive Committee</span>
+        </div>
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-running"></i></div>
+          <h3>First ICARUS Run Coordinator</h3>
+          <p>Appointed as the inaugural Run Coordinator for the ICARUS experiment. Coordinated daily operations during commissioning, CRT installation, and first beam data collection at Fermilab.</p>
+          <span class="l-period">Sep 2021 – Feb 2022 · ICARUS, Fermilab</span>
+        </div>
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Cosmic Background Rejection Group Leader</h3>
+          <p>Founded and led the Cosmic Background Rejection group at ICARUS. Developed integrated CRT-TPC-PMT framework and justified the concrete overburden installation — approved by Fermilab leadership.</p>
+          <span class="l-period">Apr 2021 – Oct 2022 · ICARUS, Fermilab</span>
+        </div>
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-vote-yea"></i></div>
+          <h3>DUNE Engagement Committee (Elected)</h3>
+          <p>Elected by peers to represent early-career members of the DUNE Collaboration. Focused on maintaining engagement and development of all collaborators.</p>
+          <span class="l-period">Mar 2024 – May 2025 · DUNE Collaboration</span>
+        </div>
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-brain"></i></div>
+          <h3>Mental Health in HEP — Snowmass Co-convener</h3>
+          <p>Co-convener for the Snowmass "Birds of a Feather" discussion on Mental Health, Invisible Disabilities, and Neurodiversity in the high-energy physics community.</p>
+          <span class="l-period">Jul 2022 · Snowmass 2021 Summer Study</span>
+        </div>
+        <div class="leadership-card">
+          <div class="l-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Peer Reviewer</h3>
+          <p>Active reviewer for Physical Review X Energy and Journal of Instrumentation (JINST), contributing to the scientific integrity of experimental physics publications.</p>
+          <span class="l-period">Oct 2024 – Present</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MENTORSHIP ══ -->
+  <section id="mentorship" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">07 / Mentorship</span>
+        <h2>Teaching & Mentoring</h2>
+        <p class="section-subtitle">23+ students mentored across PhD, MSc, and undergraduate levels in India, USA and Europe</p>
+      </div>
+      <div class="mentorship-grid">
+        <div class="mentorship-stat">
+          <span class="m-number">5</span>
+          <span class="m-label">PhD / Graduate Students</span>
+          <span class="m-detail">thesis-level mentoring</span>
+        </div>
+        <div class="mentorship-stat">
+          <span class="m-number">9</span>
+          <span class="m-label">MSc Students</span>
+          <span class="m-detail">thesis supervision</span>
+        </div>
+        <div class="mentorship-stat">
+          <span class="m-number">9+</span>
+          <span class="m-label">Undergraduate Students</span>
+          <span class="m-detail">summer projects & internships</span>
+        </div>
+        <div class="mentorship-stat">
+          <span class="m-number">4</span>
+          <span class="m-label">Countries</span>
+          <span class="m-detail">India, USA, Germany, Colombia</span>
+        </div>
+      </div>
+      <div class="current-students">
+        <h3>Current Students (2025–2026)</h3>
+        <div class="student-list">
+          <div class="student-item">
+            <div class="s-name">Chayashree N</div>
+            <div class="s-inst">Central University of Karnataka</div>
+            <div class="s-topic">Low-Energy Neutrino Physics with LArTPC · PhD Co-supervisor</div>
+          </div>
+          <div class="student-item">
+            <div class="s-name">Siya Patil</div>
+            <div class="s-inst">BMS College of Engineering, Bengaluru</div>
+            <div class="s-topic">AI/ML in low-energy neutrino interaction reconstruction · DUNE</div>
+          </div>
+          <div class="student-item">
+            <div class="s-name">Salunke Dhanush</div>
+            <div class="s-inst">BMS College of Engineering, Bengaluru</div>
+            <div class="s-topic">Power-over-Fiber R&D & CosmicWatch detector · DUNE</div>
+          </div>
+          <div class="student-item">
+            <div class="s-name">Nihi Sarkar</div>
+            <div class="s-inst">IISc Bangalore</div>
+            <div class="s-topic">Diffused supernova neutrino background using water-based liquid scintillator</div>
+          </div>
+          <div class="student-item">
+            <div class="s-name">Dristii Patel</div>
+            <div class="s-inst">IISc Bangalore</div>
+            <div class="s-topic">Muon capture at rest signal selection at ProtoDUNE</div>
+          </div>
+          <div class="student-item">
+            <div class="s-name">Chandu Yasodar</div>
+            <div class="s-inst">IISER Tirupati</div>
+            <div class="s-topic">Nuclear de-excitation in argon using NucDeEx framework</div>
+          </div>
+        </div>
+      </div>
+      <div class="outreach-block">
+        <h3>Outreach Highlights</h3>
+        <div class="outreach-grid">
+          <div class="outreach-item">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <div>
+              <strong>IISc Open Day 2026</strong>
+              <span>CosmicWatch + 3D-printed CMS/ATLAS detector demonstrations</span>
+            </div>
+          </div>
+          <div class="outreach-item">
+            <i class="fas fa-microphone"></i>
+            <div>
+              <strong>Neutrino Day 2024 at SURF</strong>
+              <span>Public engagement on DUNE physics</span>
+            </div>
+          </div>
+          <div class="outreach-item">
+            <i class="fas fa-school"></i>
+            <div>
+              <strong>PNW QuarkNet 2024</strong>
+              <span>Introductory neutrino lectures for high school teachers</span>
+            </div>
+          </div>
+          <div class="outreach-item">
+            <i class="fas fa-flask"></i>
+            <div>
+              <strong>Fermilab Ask A Scientist</strong>
+              <span>Regular volunteer 2016–2022</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MEDIA ══ -->
+  <section class="section section-alt" id="media">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">08 / Press</span>
+        <h2>In The News</h2>
+      </div>
+      <div class="media-grid">
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">Fermilab News</div>
+          <div class="media-date">April 2026</div>
+          <h4>DUNE collaborators advance breakthrough power-over-fiber technology</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">University of Florida News</div>
+          <div class="media-date">March 2024</div>
+          <h4>UF Physics Assistant Scientist awarded EDIA Ambassador for 2023</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">Fermilab News</div>
+          <div class="media-date">July 2023</div>
+          <h4>The 56th Annual Fermilab Users Meeting: New ideas for future projects</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">Symmetry Magazine</div>
+          <div class="media-date">August 2019</div>
+          <h4>Physics in the eyes and ears of an artist</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">Colorado State University</div>
+          <div class="media-date">March 2021</div>
+          <h4>CSU Team Readies Massive Detector to Search for the Strangest Particle in the Universe</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+        <a href="#" class="media-card" target="_blank">
+          <div class="media-source">URA News</div>
+          <div class="media-date">March 2023</div>
+          <h4>High Energy Physics Community Visit Capitol Hill</h4>
+          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ══ -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">09 / Contact</span>
+        <h2>Get In Touch</h2>
+        <p class="section-subtitle">Open to collaborations, student inquiries, and invited talks</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <strong>Email</strong>
+              <a href="mailto:biswaranjanb@iisc.ac.in">biswaranjanb@iisc.ac.in</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div>
+              <strong>Address</strong>
+              <span>Center for High Energy Physics (CHEP)<br/>Indian Institute of Science<br/>Bangalore – 560012, Karnataka, India</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <strong>Academic Profiles</strong>
+              <div class="contact-links-row">
+                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://inspire-hep.net" target="_blank">INSPIRE-HEP</a>
+                <a href="https://orcid.org" target="_blank">ORCID</a>
+              </div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-users"></i></div>
+            <div>
+              <strong>Collaborations</strong>
+              <span>DUNE · ICARUS · SBND · MicroBooNE</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Send a Message</h3>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="your@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <select id="subject">
+              <option value="">Select a topic...</option>
+              <option>Research Collaboration</option>
+              <option>PhD/Postdoc Inquiry</option>
+              <option>Invited Talk / Seminar</option>
+              <option>Media / Press</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+          <p class="form-note">* This is a static site. Message will open your email client.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="footer-nu">ν</span>IDEA Lab
+          <p>Center for High Energy Physics · IISc Bangalore</p>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="mailto:biswaranjanb@iisc.ac.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://inspire-hep.net" target="_blank" aria-label="INSPIRE-HEP"><i class="fas fa-atom"></i></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Dr. Biswaranjan Behera · IISc Bangalore · Built with physics and precision</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
