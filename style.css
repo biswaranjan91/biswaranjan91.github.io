@@ -277,6 +277,7 @@ img { max-width: 100%; }
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.6; transform: scale(0.8); }
 }
+
 .hero-name {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(2.8rem, 6vw, 4.5rem);
@@ -385,6 +386,9 @@ img { max-width: 100%; }
   0%, 100% { r: 4; opacity: 1; }
   50% { r: 6; opacity: 0.7; }
 }
+/* IDEA — the dark mode fix: was hardcoded black, now theme-aware */
+.logo-idea-text { fill: #0c0c1a; }
+[data-theme="dark"] .logo-idea-text { fill: #e8eaff; }
 .hero-scroll {
   grid-column: 1 / -1;
   display: flex;
