@@ -20,7 +20,7 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <span class="nav-nu">ν</span>IDEA
+        <span class="nav-nu">ν</span>BB
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -64,13 +64,13 @@
         <a href="#" class="btn btn-outline" id="cvDownload">
           <i class="fas fa-file-pdf"></i> Download CV
         </a>
-        <a href="https://scholar.google.com/citations?user=eKr3escAAAAJ&hl=en" target="_blank" class="btn btn-icon" aria-label="Google Scholar">
+        <a href="https://scholar.google.com" target="_blank" class="btn btn-icon" aria-label="Google Scholar">
           <i class="fas fa-graduation-cap"></i>
         </a>
-        <a href="https://www.linkedin.com/in/biswaranjan-behera-077792287/" target="_blank" class="btn btn-icon" aria-label="LinkedIn">
+        <a href="https://linkedin.com" target="_blank" class="btn btn-icon" aria-label="LinkedIn">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a href="https://inspirehep.net/authors/1597698?ui-citation-summary=true" target="_blank" class="btn btn-icon" aria-label="INSPIRE HEP">
+        <a href="https://inspire-hep.net" target="_blank" class="btn btn-icon" aria-label="INSPIRE HEP">
           <i class="fas fa-atom"></i>
         </a>
       </div>
@@ -97,172 +97,119 @@
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-detector">
-<?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 480 480"
-  role="img" xmlns="http://www.w3.org/2000/svg">
-  <title>νIDEA Logo — Transparent</title>
-  <desc>νIDEA: Neutrino Instrumentation, Detector, Experiment and Analysis. Transparent background version.</desc>
+      <!-- νIDEA logo inline SVG — fixes ellipse + dark mode issues -->
+      <!-- width=height + display:block ensures perfect circle, no stretching -->
+      <!-- All text colors use CSS classes so theme toggle works -->
+      <svg class="nuidea-logo-svg"
+           viewBox="0 0 480 480"
+           xmlns="http://www.w3.org/2000/svg"
+           role="img"
+           aria-label="νIDEA Logo">
+        <defs>
+          <linearGradient id="arcGHero" gradientUnits="userSpaceOnUse" x1="32" y1="240" x2="448" y2="240">
+            <stop offset="0%"   stop-color="#1a5fb8"/>
+            <stop offset="38%"  stop-color="#1a8a45"/>
+            <stop offset="72%"  stop-color="#7c3aed"/>
+            <stop offset="92%"  stop-color="#9090b0" stop-opacity="0.3"/>
+          </linearGradient>
+          <path id="halfCircleArcHero" d="M 118,222 A 122,122 0 0,1 362,222"/>
+        </defs>
 
-  <defs>
-    <linearGradient id="arcG" gradientUnits="userSpaceOnUse" x1="32" y1="240" x2="448" y2="240">
-      <stop offset="0%"   stop-color="#1a5fb8"/>
-      <stop offset="38%"  stop-color="#1a8a45"/>
-      <stop offset="72%"  stop-color="#7c3aed"/>
-      <stop offset="92%"  stop-color="#9090b0" stop-opacity="0.3"/>
-    </linearGradient>
-    <!-- Tagline arc: semicircle r=122, center=(240,222), from (118,222) to (362,222) -->
-    <path id="halfCircleArc" d="M 118,222 A 122,122 0 0,1 362,222"/>
-  </defs>
+        <!-- ══ OUTER COLOR ARC BORDER ══ -->
+        <circle cx="240" cy="240" r="210"
+          fill="none" stroke="url(#arcGHero)"
+          stroke-width="9" stroke-linecap="round"
+          stroke-dasharray="1112 210" stroke-dashoffset="60"/>
+        <!-- Unknown ν? dashed gap -->
+        <circle cx="240" cy="240" r="210"
+          fill="none" stroke="#9090b0"
+          stroke-width="5" stroke-linecap="round"
+          stroke-dasharray="12 15" stroke-dashoffset="-1050"
+          opacity="0.35"/>
 
-  <!-- NO background circle — fully transparent -->
+        <!-- ══ OUTER SOLID THIN RING ══ -->
+        <circle cx="240" cy="240" r="196"
+          fill="none" class="logo-ring-outer"
+          stroke-width="1" opacity="0.5"/>
 
-  <!-- ══ OUTER COLOR ARC BORDER ══ -->
-  <!-- Colored arc: blue→green→purple, ~310°, circumference@r=210≈1319px -->
-  <circle cx="240" cy="240" r="210"
-    fill="none"
-    stroke="url(#arcG)"
-    stroke-width="9"
-    stroke-linecap="round"
-    stroke-dasharray="1112 210"
-    stroke-dashoffset="60"/>
+        <!-- ══ INNER DASHED RING (fiducial) ══ -->
+        <circle cx="240" cy="240" r="166"
+          fill="none" class="logo-ring-inner"
+          stroke-width="1" stroke-dasharray="6 5" opacity="0.55"/>
 
-  <!-- Unknown flavor gap: dashed grey arc fills remaining ~50° -->
-  <circle cx="240" cy="240" r="210"
-    fill="none"
-    stroke="#9090b0"
-    stroke-width="5"
-    stroke-linecap="round"
-    stroke-dasharray="12 15"
-    stroke-dashoffset="-1050"
-    opacity="0.35"/>
+        <!-- ══ TAGLINE on arc ══ -->
+        <text font-size="8.5" letter-spacing="0.055em" font-family="Arial,sans-serif">
+          <textPath href="#halfCircleArcHero" startOffset="50%" text-anchor="middle">
+            <tspan class="logo-tagline-text">INSTRUMENTATION · DETECTOR · EXPERIMENT · ANALYSIS</tspan>
+          </textPath>
+        </text>
 
-  <!-- ══ OUTER SOLID THIN RING ══ -->
-  <circle cx="240" cy="240" r="196"
-    fill="none"
-    stroke="#1a1a3a"
-    stroke-width="1"
-    opacity="0.5"/>
+        <!-- ══ ν e μ τ R I N O ══ -->
+        <!-- All colors use CSS classes — theme-aware for both light & dark -->
+        <text x="240" y="221" text-anchor="middle"
+          font-size="13" font-weight="700"
+          font-family="Georgia,serif" letter-spacing="2">
+          <tspan class="logo-text-main" font-size="18">ν</tspan>
+          <tspan class="logo-nu-e">e</tspan>
+          <tspan class="logo-nu-mu">μ</tspan>
+          <tspan class="logo-nu-tau">τ</tspan>
+          <tspan class="logo-text-main" font-family="Arial,sans-serif">RINO</tspan>
+        </text>
 
-  <!-- ══ INNER DASHED RING (fiducial volume) ══ -->
-  <circle cx="240" cy="240" r="166"
-    fill="none"
-    stroke="#7070a0"
-    stroke-width="1"
-    stroke-dasharray="6 5"
-    opacity="0.55"/>
+        <!-- ══ OSCILLATION BRAID ══ -->
+        <!-- Dashed incoming stub -->
+        <line x1="96" y1="272" x2="124" y2="272"
+          class="logo-ring-inner" stroke-width="1.2"
+          stroke-dasharray="3 3" opacity="0.5"/>
+        <!-- Source vertex -->
+        <circle cx="128" cy="272" r="3" class="logo-dot-e"/>
 
-  <!-- ══ TAGLINE — arcs along upper semicircle ══ -->
-  <text font-size="8.5" letter-spacing="0.055em" font-family="Arial,sans-serif">
-    <textPath href="#halfCircleArc" startOffset="50%" text-anchor="middle">
-      <tspan fill="#5a5a8a">INSTRUMENTATION · DETECTOR · EXPERIMENT · ANALYSIS</tspan>
-    </textPath>
-  </text>
+        <!-- νe strand — blue -->
+        <path d="M128,272 C134,272 137,260 143,260 C149,260 152,284 158,284
+          C164,284 167,260 173,260 C179,260 182,284 188,284
+          C194,284 198,259 205,257 C212,255 218,278 228,282
+          C238,286 245,256 256,252 C267,248 274,278 287,282
+          C298,286 306,256 318,252 C328,248 337,272 348,274
+          C351,275 352,272 352,272"
+          fill="none" class="logo-strand-e" stroke-width="1.9" stroke-linecap="round"/>
 
-  <!-- ══ ν e μ τ R I N O — flavor-encoded word ══ -->
-  <!--
-    ν  : Greek nu (N→ν), dark navy, font-size=18 (slightly larger as lead)
-    e  : electron flavor, blue  (#1a5fb8)
-    μ  : muon flavor,     green (#1a8a45)
-    τ  : tau flavor,      purple (#7c3aed)
-    RINO: plain dark navy
-    All on same baseline y=221, centered at x=240, letter-spacing=2
-  -->
-  <text x="240" y="221"
-    text-anchor="middle"
-    font-size="13"
-    font-weight="700"
-    font-family="Georgia,serif"
-    letter-spacing="2">
-    <tspan fill="#1a1a3a" font-size="18">ν</tspan>
-    <tspan fill="#1a5fb8">e</tspan>
-    <tspan fill="#1a8a45">μ</tspan>
-    <tspan fill="#7c3aed">τ</tspan>
-    <tspan fill="#1a1a3a" font-family="Arial,sans-serif">RINO</tspan>
-  </text>
+        <!-- νμ strand — green -->
+        <path d="M128,272 C134,272 137,284 143,284 C149,284 152,260 158,260
+          C164,260 167,284 173,284 C179,284 182,260 188,260
+          C194,260 198,285 205,286 C212,287 219,263 228,262
+          C237,261 244,284 255,288 C266,292 274,262 287,258
+          C298,254 307,282 319,286 C329,290 339,270 350,269
+          C352,268 352,272 352,272"
+          fill="none" class="logo-strand-mu" stroke-width="1.9" stroke-linecap="round"/>
 
-  <!-- ══ OSCILLATION BRAID ══ -->
-  <!--
-    Physics: three mass eigenstates tightly mixed at source (left vertex),
-    propagate and dephase (braid opens rightward),
-    one flavor detected at right (single clean wave).
-    Braid spans x=128 to x=352, y-center=272.
-  -->
+        <!-- ντ strand — purple -->
+        <path d="M128,272 C135,272 138,272 145,272 C153,271 156,273 163,272
+          C171,271 175,276 183,275 C192,274 197,266 206,263
+          C216,260 223,278 234,282
+          C245,286 253,264 264,258 C276,252 285,278 298,283
+          C311,288 320,262 333,256 C344,250 348,269 352,272"
+          fill="none" class="logo-strand-tau" stroke-width="1.9" stroke-linecap="round"/>
 
-  <!-- Incoming dashed stub — left of source only -->
-  <line x1="96" y1="272" x2="124" y2="272"
-    stroke="#7070a0"
-    stroke-width="1.2"
-    stroke-dasharray="3 3"
-    opacity="0.5"/>
+        <!-- Merge vertex -->
+        <circle cx="352" cy="272" r="2.8" class="logo-dot-e" opacity="0.6"/>
 
-  <!-- Source interaction vertex dot -->
-  <circle cx="128" cy="272" r="3" fill="#1a5fb8"/>
+        <!-- Single detected flavor -->
+        <path d="M352,272 C360,272 364,261 373,261 C382,261 385,282 392,278"
+          fill="none" class="logo-strand-tau" stroke-width="2.2" stroke-linecap="round"/>
 
-  <!-- STRAND 1: νe — blue -->
-  <path d="
-    M128,272
-    C134,272 137,260 143,260 C149,260 152,284 158,284
-    C164,284 167,260 173,260 C179,260 182,284 188,284
-    C194,284 198,259 205,257 C212,255 218,278 228,282
-    C238,286 245,256 256,252 C267,248 274,278 287,282
-    C298,286 306,256 318,252 C328,248 337,272 348,274
-    C351,275 352,272 352,272
-  " fill="none" stroke="#1a5fb8" stroke-width="1.9" stroke-linecap="round"/>
-
-  <!-- STRAND 2: νμ — green, anti-phase -->
-  <path d="
-    M128,272
-    C134,272 137,284 143,284 C149,284 152,260 158,260
-    C164,260 167,284 173,284 C179,284 182,260 188,260
-    C194,260 198,285 205,286 C212,287 219,263 228,262
-    C237,261 244,284 255,288 C266,292 274,262 287,258
-    C298,254 307,282 319,286 C329,290 339,270 350,269
-    C352,268 352,272 352,272
-  " fill="none" stroke="#1a8a45" stroke-width="1.9" stroke-linecap="round"/>
-
-  <!-- STRAND 3: ντ — purple, rises last -->
-  <path d="
-    M128,272
-    C135,272 138,272 145,272 C153,271 156,273 163,272
-    C171,271 175,276 183,275 C192,274 197,266 206,263
-    C216,260 223,278 234,282
-    C245,286 253,264 264,258 C276,252 285,278 298,283
-    C311,288 320,262 333,256 C344,250 348,269 352,272
-  " fill="none" stroke="#7c3aed" stroke-width="1.9" stroke-linecap="round"/>
-
-  <!-- Merge / detection vertex -->
-  <circle cx="352" cy="272" r="2.8" fill="#1a5fb8" opacity="0.6"/>
-
-  <!-- Single detected flavor — one clean wave (ντ purple) -->
-  <path d="M352,272 C360,272 364,261 373,261 C382,261 385,282 392,278"
-    fill="none"
-    stroke="#7c3aed"
-    stroke-width="2.2"
-    stroke-linecap="round"/>
-
-  <!-- ══ νIDEA LOGOTYPE ══ -->
-  <!--
-    ν : serif Georgia, blue, 58px — feels like physics notation
-    IDEA : Arial Black, dark navy, 52px — bold institutional
-    dx="-4" closes the gap between ν and IDEA so they read as one word
-  -->
-  <text x="240" y="362" text-anchor="middle">
-    <tspan
-      fill="#1a5fb8"
-      font-size="58"
-      font-weight="800"
-      font-family="Georgia,'Times New Roman',serif">ν</tspan><tspan
-      class="logo-idea-text"                                                       
-      dx="-4"
-      font-size="52"
-      font-weight="800"
-      font-family="'Arial Black',Arial,sans-serif"
-      letter-spacing="1">IDEA</tspan>
-  </text>
-
-</svg>
-      </div>
+        <!-- ══ νIDEA LOGOTYPE ══ -->
+        <!-- ν always blue, IDEA uses theme-aware class (NOT hardcoded black) -->
+        <text x="240" y="362" text-anchor="middle">
+          <tspan fill="#1a5fb8"
+            font-size="58" font-weight="800"
+            font-family="Georgia,'Times New Roman',serif">ν</tspan><tspan
+            class="logo-idea-text"
+            dx="-4"
+            font-size="52" font-weight="800"
+            font-family="'Arial Black',Arial,sans-serif"
+            letter-spacing="1">IDEA</tspan>
+        </text>
+      </svg>
     </div>
     <div class="hero-scroll">
       <span>Scroll to explore</span>
