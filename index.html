@@ -7,9 +7,12 @@
   <meta name="description" content="Ramanujan Fellow at IISc Bangalore. Experimental neutrino physicist working on DUNE, ICARUS, and SBND." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <!-- <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" /> -->
 </head>
 <body>
 
@@ -27,6 +30,16 @@
       </button>
       <ul class="nav-links" id="navLinks">
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#resources">Resources</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <!-- <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
         <li><a href="#news">News</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#research">Research</a></li>
@@ -34,7 +47,7 @@
         <li><a href="#awards">Awards</a></li>
         <li><a href="#mentorship">Mentorship</a></li>
         <li><a href="#contact">Contact</a></li>
-      </ul>
+      </ul> -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
         <i class="fas fa-moon" id="themeIcon"></i>
       </button>
@@ -47,6 +60,17 @@
       <div class="hero-badge">
         <span class="badge-dot"></span>
         Ramanujan Fellow · IISc Bangalore
+      </div>
+      <!-- Profile photo — replace src with your actual photo -->
+      <div class="hero-profile">
+        <img src="profile.jpg" alt="Dr. Biswaranjan Behera"
+          class="hero-photo"
+          onerror="this.style.display='none'; document.getElementById('photoPlaceholder').style.display='flex'"/>
+        <div class="hero-photo-placeholder" id="photoPlaceholder">
+          <i class="fas fa-user-astronaut"></i>
+          <span>Add profile.jpg</span>
+        </div>
+      </div>
       </div>
       <h1 class="hero-name">Dr. Biswaranjan<br/><em>Behera</em></h1>
       <p class="hero-tagline">
@@ -795,8 +819,567 @@
     </div>
   </section>
 
+  
+  <!-- ══ TEAM ══ -->
+  <section id="team" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">07 / Team</span>
+        <h2>νIDEA Lab Team</h2>
+        <p class="section-subtitle">Students, researchers and collaborators at IISc Bangalore and beyond</p>
+      </div>
+ 
+      <!-- PI Card -->
+      <div class="pi-card">
+        <div class="pi-photo-wrap">
+          <img src="profile.jpg" alt="Dr. Biswaranjan Behera" class="pi-photo"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="photo-fallback"><i class="fas fa-user"></i></div>
+        </div>
+        <div class="pi-info">
+          <div class="pi-role">Principal Investigator</div>
+          <h3>Dr. Biswaranjan Behera</h3>
+          <p>Ramanujan Fellow · Center for High Energy Physics, IISc Bangalore</p>
+          <div class="pi-tags">
+            <span>DUNE</span><span>ICARUS</span><span>SBND</span><span>PoF Technology</span>
+          </div>
+          <a href="mailto:biswaranjanb@iisc.ac.in" class="pi-email">
+            <i class="fas fa-envelope"></i> biswaranjanb@iisc.ac.in
+          </a>
+        </div>
+      </div>
+ 
+      <!-- PhD Students -->
+      <div class="team-category">
+        <h3 class="team-cat-title"><span class="cat-dot phd-dot"></span>PhD Students</h3>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/chayashree.jpg" alt="Chayashree N"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user-graduate"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role phd">PhD Co-supervisor</div>
+              <h4>Chayashree N</h4>
+              <p class="team-inst">Central University of Karnataka</p>
+              <p class="team-topic">Low-Energy Neutrino Physics with LArTPC Detectors</p>
+              <span class="team-since">May 2026 – Present</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- MSc Thesis Students -->
+      <div class="team-category">
+        <h3 class="team-cat-title"><span class="cat-dot msc-dot"></span>MSc Thesis Students</h3>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/ayisha.jpg" alt="Ayisha Shana K A"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user-graduate"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role msc">MSc Thesis</div>
+              <h4>Ayisha Shana K A</h4>
+              <p class="team-inst">Central University of Karnataka</p>
+              <p class="team-topic">Feasibility Study of KDAR νμ at ICARUS Using NuMI Beamline</p>
+              <span class="team-since">Dec 2025 – May 2026</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/adikiran.jpg" alt="Adikiran Jonny"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user-graduate"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role msc">MSc Thesis</div>
+              <h4>Adikiran Jonny</h4>
+              <p class="team-inst">Central University of Karnataka</p>
+              <p class="team-topic">Beam Through-Going Muon Backgrounds for Muon CAR in ProtoDUNE-HD</p>
+              <span class="team-since">Dec 2025 – May 2026</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/athulkrishna.jpg" alt="Athulkrishna K"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user-graduate"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role msc">MSc Thesis</div>
+              <h4>Athulkrishna K</h4>
+              <p class="team-inst">Central University of Karnataka</p>
+              <p class="team-topic">Cosmic Background for Muon CAR Signal in ProtoDUNE-HD</p>
+              <span class="team-since">Dec 2025 – May 2026</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Project Students -->
+      <div class="team-category">
+        <h3 class="team-cat-title"><span class="cat-dot proj-dot"></span>Project Students</h3>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/siya.jpg" alt="Siya Patil"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role proj">BTech Project · DUNE</div>
+              <h4>Siya Patil</h4>
+              <p class="team-inst">BMS College of Engineering, Bengaluru</p>
+              <p class="team-topic">AI/ML in Low-Energy Neutrino Interaction Reconstruction</p>
+              <span class="team-since">Nov 2025 – Present</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/dhanush.jpg" alt="Salunke Dhanush"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role proj">BTech Project · DUNE</div>
+              <h4>Salunke Dhanush Dattatraya</h4>
+              <p class="team-inst">BMS College of Engineering, Bengaluru</p>
+              <p class="team-topic">Power-over-Fiber R&D & CosmicWatch Detector</p>
+              <span class="team-since">Nov 2025 – Present</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Summer Interns -->
+      <div class="team-category">
+        <h3 class="team-cat-title"><span class="cat-dot intern-dot"></span>Summer Interns (2026)</h3>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/chandu.jpg" alt="Chandu Yasodar"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role intern">Summer Intern</div>
+              <h4>Chandu Yasodar</h4>
+              <p class="team-inst">IISER Tirupati</p>
+              <p class="team-topic">Nuclear De-excitation in Argon using NucDeEx Framework</p>
+              <span class="team-since">May – Jul 2026</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/keerthipriya.jpg" alt="Keerthipriya T A"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role intern">Summer Intern</div>
+              <h4>Keerthipriya T A</h4>
+              <p class="team-inst">IISER Tirupati</p>
+              <p class="team-topic">Kaon Decay-at-Rest Neutrino Interactions on Argon using NuWro</p>
+              <span class="team-since">May – Jul 2026</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/nihi.jpg" alt="Nihi Sarkar"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role intern">Summer Intern</div>
+              <h4>Nihi Sarkar</h4>
+              <p class="team-inst">IISc Bangalore</p>
+              <p class="team-topic">Diffused Supernova Neutrino Background with Water-Based Scintillator</p>
+              <span class="team-since">May – Jul 2026</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-photo-wrap">
+              <img src="students/dristii.jpg" alt="Dristii Patel"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="team-info">
+              <div class="team-role intern">Summer Intern</div>
+              <h4>Dristii Patel</h4>
+              <p class="team-inst">IISc Bangalore</p>
+              <p class="team-topic">Muon Capture at Rest Signal Selection at ProtoDUNE</p>
+              <span class="team-since">May 2026 – Present</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Alumni -->
+      <div class="team-category">
+        <h3 class="team-cat-title"><span class="cat-dot alumni-dot"></span>Notable Alumni</h3>
+        <div class="alumni-grid">
+          <div class="alumni-item">
+            <div class="alumni-photo-wrap">
+              <img src="students/tyler.jpg" alt="Dr. Tyler Boone"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback-sm"><i class="fas fa-user"></i></div>
+            </div>
+            <div>
+              <strong>Dr. Tyler Boone</strong>
+              <span>PhD · Colorado State University · ICARUS (2019–2023)</span>
+            </div>
+          </div>
+          <div class="alumni-item">
+            <div class="alumni-photo-wrap">
+              <img src="students/anna.jpg" alt="Anna Heggesteun"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback-sm"><i class="fas fa-user"></i></div>
+            </div>
+            <div>
+              <strong>Anna Heggesteun</strong>
+              <span>Graduate · Colorado State University · ICARUS (2020–2024)</span>
+            </div>
+          </div>
+          <div class="alumni-item">
+            <div class="alumni-photo-wrap">
+              <img src="students/brinden.jpg" alt="Brinden Carlson"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback-sm"><i class="fas fa-user"></i></div>
+            </div>
+            <div>
+              <strong>Brinden Carlson</strong>
+              <span>Graduate · University of Florida · SBND (2022–2024)</span>
+            </div>
+          </div>
+          <div class="alumni-item">
+            <div class="alumni-photo-wrap">
+              <img src="students/denis.jpg" alt="Denis Torres"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+              <div class="photo-fallback-sm"><i class="fas fa-user"></i></div>
+            </div>
+            <div>
+              <strong>Denis Torres Muñoz</strong>
+              <span>Graduate · SDMines · DUNE PoF (2024–2025)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Join the team CTA -->
+      <div class="join-cta">
+        <div class="join-text">
+          <h3>Join the νIDEA Lab</h3>
+          <p>We are actively looking for motivated PhD students, postdocs, and project students interested in experimental neutrino physics, detector instrumentation, and cryogenic R&D.</p>
+        </div>
+        <a href="mailto:biswaranjanb@iisc.ac.in?subject=Join νIDEA Lab" class="btn btn-primary">
+          <i class="fas fa-paper-plane"></i> Express Interest
+        </a>
+      </div>
+ 
+    </div>
+  </section>
+ 
+  <!-- ══ GALLERY ══ -->
+  <section id="gallery" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">08 / Gallery</span>
+        <h2>Lab & Field Work</h2>
+        <p class="section-subtitle">From cryogenic labs to underground detectors — life in neutrino physics</p>
+      </div>
+      <div class="gallery-filters">
+        <button class="gallery-filter active" data-gfilter="all">All</button>
+        <button class="gallery-filter" data-gfilter="lab">Lab Work</button>
+        <button class="gallery-filter" data-gfilter="detector">Detectors</button>
+        <button class="gallery-filter" data-gfilter="team">Team</button>
+        <button class="gallery-filter" data-gfilter="outreach">Outreach</button>
+      </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Replace src values with your actual photos -->
+        <!-- Add data-gfilter to categorize: lab, detector, team, outreach -->
+        <div class="gallery-item" data-gfilter="lab">
+          <img src="gallery/pof-lab.jpg" alt="PoF Technology R&D"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-flask"></i><span>PoF Lab Work</span></div>
+          <div class="gallery-overlay">
+            <p>Power-over-Fiber R&D at SDMines / IISc</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="detector">
+          <img src="gallery/protodune.jpg" alt="ProtoDUNE-VD at CERN"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-dot-circle"></i><span>ProtoDUNE-VD</span></div>
+          <div class="gallery-overlay">
+            <p>ProtoDUNE-VD installation at CERN, 2025</p>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-wide" data-gfilter="team">
+          <img src="gallery/team-iisc.jpg" alt="νIDEA Lab Team at IISc"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-users"></i><span>Team Photo — IISc</span></div>
+          <div class="gallery-overlay">
+            <p>νIDEA Lab team at IISc Bangalore, 2026</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="detector">
+          <img src="gallery/icarus-crt.jpg" alt="ICARUS CRT Installation"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-microchip"></i><span>ICARUS CRT</span></div>
+          <div class="gallery-overlay">
+            <p>ICARUS CRT side wall installation at Fermilab</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="outreach">
+          <img src="gallery/iisc-openday.jpg" alt="IISc Open Day 2026"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-chalkboard-teacher"></i><span>IISc Open Day</span></div>
+          <div class="gallery-overlay">
+            <p>CosmicWatch demo at IISc Open Day 2026</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="lab">
+          <img src="gallery/cosmicwatch.jpg" alt="CosmicWatch Detector"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-radiation"></i><span>CosmicWatch</span></div>
+          <div class="gallery-overlay">
+            <p>CosmicWatch detector build for student training</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="outreach">
+          <img src="gallery/neutrino-day.jpg" alt="Neutrino Day SURF 2024"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-star"></i><span>Neutrino Day 2024</span></div>
+          <div class="gallery-overlay">
+            <p>Neutrino Day 2024 at SURF, South Dakota</p>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item-tall" data-gfilter="detector">
+          <img src="gallery/dune-fd.jpg" alt="DUNE Far Detector"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-network-wired"></i><span>DUNE Far Detector</span></div>
+          <div class="gallery-overlay">
+            <p>DUNE Far Detector Vertical Drift</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-gfilter="team">
+          <img src="gallery/fermilab-ueec.jpg" alt="Fermilab Users Meeting 2023"
+            onerror="this.parentElement.querySelector('.gallery-placeholder').style.display='flex'; this.style.display='none'"/>
+          <div class="gallery-placeholder"><i class="fas fa-microphone"></i><span>Fermilab Meeting</span></div>
+          <div class="gallery-overlay">
+            <p>56th Annual Fermilab Users Meeting, 2023</p>
+          </div>
+        </div>
+      </div>
+      <p class="gallery-note">
+        <i class="fas fa-info-circle"></i>
+        To add your photos: place images in a <code>gallery/</code> folder and upload to GitHub alongside <code>index.html</code>
+      </p>
+    </div>
+  </section>
+ 
+  <!-- ══ RESOURCES ══ -->
+  <section id="resources" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">09 / Resources</span>
+        <h2>Resources for Neutrino Physicists</h2>
+        <p class="section-subtitle">Curated reading materials, software tools, and learning resources for students and researchers</p>
+      </div>
+ 
+      <div class="resources-grid">
+ 
+        <!-- Textbooks -->
+        <div class="resource-category">
+          <div class="resource-cat-header">
+            <div class="resource-cat-icon"><i class="fas fa-book"></i></div>
+            <h3>Textbooks & Reviews</h3>
+          </div>
+          <div class="resource-list">
+            <a href="https://arxiv.org/abs/hep-ph/0405172" target="_blank" class="resource-item">
+              <div class="resource-icon book"><i class="fas fa-book-open"></i></div>
+              <div>
+                <strong>Neutrino Physics & Astrophysics</strong>
+                <span>C. Giunti & C.W. Kim — Comprehensive introduction to neutrino mass and oscillations</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://arxiv.org/abs/2001.05505" target="_blank" class="resource-item">
+              <div class="resource-icon book"><i class="fas fa-book-open"></i></div>
+              <div>
+                <strong>Neutrino Oscillations — A Review</strong>
+                <span>M. Gonzalez-Garcia & Y. Nir — arXiv review, excellent starting point</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://pdg.lbl.gov/2024/tables/contents_tables.html" target="_blank" class="resource-item">
+              <div class="resource-icon book"><i class="fas fa-table"></i></div>
+              <div>
+                <strong>PDG — Neutrino Properties</strong>
+                <span>Particle Data Group — current best-fit oscillation parameters</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://arxiv.org/abs/2111.03086" target="_blank" class="resource-item">
+              <div class="resource-icon book"><i class="fas fa-book-open"></i></div>
+              <div>
+                <strong>Neutrino Cross-sections Review</strong>
+                <span>NuSTEC White Paper — neutrino-nucleus interaction overview</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Simulation Tools -->
+        <div class="resource-category">
+          <div class="resource-cat-header">
+            <div class="resource-cat-icon"><i class="fas fa-code"></i></div>
+            <h3>Simulation & Analysis Tools</h3>
+          </div>
+          <div class="resource-list">
+            <a href="https://github.com/GENIE-MC/Generator" target="_blank" class="resource-item">
+              <div class="resource-icon code"><i class="fas fa-cogs"></i></div>
+              <div>
+                <strong>GENIE Neutrino Generator</strong>
+                <span>Standard neutrino interaction Monte Carlo generator for HEP experiments</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://root.cern" target="_blank" class="resource-item">
+              <div class="resource-icon code"><i class="fas fa-chart-bar"></i></div>
+              <div>
+                <strong>ROOT Framework</strong>
+                <span>CERN's data analysis framework — essential for HEP data analysis</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://larsoft.org" target="_blank" class="resource-item">
+              <div class="resource-icon code"><i class="fas fa-layer-group"></i></div>
+              <div>
+                <strong>LArSoft</strong>
+                <span>Liquid argon TPC simulation and reconstruction framework (DUNE, ICARUS, SBND)</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://github.com/NuWro/nuwro" target="_blank" class="resource-item">
+              <div class="resource-icon code"><i class="fas fa-atom"></i></div>
+              <div>
+                <strong>NuWro Generator</strong>
+                <span>Neutrino event generator — used for νeμτRINO interaction studies</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://geant4.org" target="_blank" class="resource-item">
+              <div class="resource-icon code"><i class="fas fa-project-diagram"></i></div>
+              <div>
+                <strong>Geant4</strong>
+                <span>Detector simulation toolkit — used in all major neutrino experiments</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Experimental References -->
+        <div class="resource-category">
+          <div class="resource-cat-header">
+            <div class="resource-cat-icon"><i class="fas fa-flask"></i></div>
+            <h3>Key Experiment Papers</h3>
+          </div>
+          <div class="resource-list">
+            <a href="https://arxiv.org/abs/2002.03005" target="_blank" class="resource-item">
+              <div class="resource-icon paper"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <strong>DUNE Far Detector TDR Vol. II</strong>
+                <span>DUNE Collaboration — complete technical design for FD physics</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://arxiv.org/abs/2503.23291" target="_blank" class="resource-item">
+              <div class="resource-icon paper"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <strong>The DUNE Science Program (2025)</strong>
+                <span>Latest comprehensive overview of DUNE physics goals</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://inspirehep.net/literature?sort=mostrecent&size=25&page=1&q=ICARUS%20SBN" target="_blank" class="resource-item">
+              <div class="resource-icon paper"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <strong>ICARUS SBN Papers</strong>
+                <span>INSPIRE-HEP search — all recent ICARUS publications</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://arxiv.org/abs/2406.01810" target="_blank" class="resource-item">
+              <div class="resource-icon paper"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <strong>NuFIT 6.0 — Global Oscillation Fit</strong>
+                <span>Latest global fit to all neutrino oscillation data</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Learning Resources -->
+        <div class="resource-category">
+          <div class="resource-cat-header">
+            <div class="resource-cat-icon"><i class="fas fa-graduation-cap"></i></div>
+            <h3>Learning & Schools</h3>
+          </div>
+          <div class="resource-list">
+            <a href="https://www.fnal.gov/pub/science/particle-physics-experiments/neutrinos/index.html" target="_blank" class="resource-item">
+              <div class="resource-icon learn"><i class="fas fa-university"></i></div>
+              <div>
+                <strong>Fermilab Neutrino Program</strong>
+                <span>Overview of the SBN program — SBND, ICARUS, MicroBooNE</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://indico.cern.ch/category/12607/" target="_blank" class="resource-item">
+              <div class="resource-icon learn"><i class="fas fa-chalkboard-teacher"></i></div>
+              <div>
+                <strong>CERN Academic Training — Neutrinos</strong>
+                <span>Lecture series on neutrino physics from CERN</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://arxiv.org/abs/hep-ph/0411232" target="_blank" class="resource-item">
+              <div class="resource-icon learn"><i class="fas fa-file-alt"></i></div>
+              <div>
+                <strong>Massive Neutrinos in Physics & Astrophysics</strong>
+                <span>Bilenky & Petcov — classic review, free arXiv version</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+            <a href="https://www.nu-fit.org" target="_blank" class="resource-item">
+              <div class="resource-icon learn"><i class="fas fa-chart-line"></i></div>
+              <div>
+                <strong>NuFIT Website</strong>
+                <span>Up-to-date neutrino oscillation parameter fits and plots</span>
+              </div>
+              <i class="fas fa-external-link-alt resource-ext"></i>
+            </a>
+          </div>
+        </div>
+ 
+      </div>
+ 
+      <!-- Personal note -->
+      <div class="resources-note">
+        <i class="fas fa-lightbulb"></i>
+        <p>For students joining the νIDEA lab: start with the NuSTEC cross-sections review and the DUNE TDR Vol. II. For analysis, get comfortable with ROOT and LArSoft early. Feel free to <a href="mailto:biswaranjanb@iisc.ac.in">email me</a> for a more tailored reading list.</p>
+      </div>
+ 
+    </div>
+  </section>
+  
   <!-- ══ MENTORSHIP ══ -->
-  <section id="mentorship" class="section">
+  <!-- <section id="mentorship" class="section">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">07 / Mentorship</span>
@@ -895,7 +1478,7 @@
       </div>
     </div>
   </section>
-
+-->
   <!-- ══ MEDIA ══ -->
   <section class="section section-alt" id="media">
     <div class="container">
