@@ -1,1054 +1,1274 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dr. Biswaranjan Behera | Experimental Neutrino Physics</title>
-  <meta name="description" content="Ramanujan Fellow at IISc Bangalore. Experimental neutrino physicist working on DUNE, ICARUS, and SBND." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+/* ══════════════════════════════════════════════════
+   νIDEA Lab — Dr. Biswaranjan Behera
+   Academic Website Stylesheet
+   ══════════════════════════════════════════════════ */
 
-  <!-- ══ CANVAS BACKGROUND ══ -->
-  <canvas id="particleCanvas"></canvas>
+/* ── CSS VARIABLES ── */
+:root {
+  --bg:           #f8f8f6;
+  --bg-alt:       #f0f0ec;
+  --surface:      #ffffff;
+  --surface-2:    #f4f4f0;
+  --border:       #e2e2da;
+  --text:         #111118;
+  --text-muted:   #666672;
+  --text-faint:   #9999a8;
+  --accent:       #1a3a6e;
+  --accent-mid:   #2555a0;
+  --accent-light: #4a80d4;
+  --nu-e:         #1a5fb8;
+  --nu-mu:        #1a7a40;
+  --nu-tau:       #6c2acd;
+  --gold:         #b8860b;
+  --gold-light:   #e8c84a;
+  --radius:       12px;
+  --radius-lg:    20px;
+  --shadow:       0 2px 16px rgba(0,0,0,0.07);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.12);
+  --nav-h:        64px;
+  --transition:   0.3s cubic-bezier(0.4,0,0.2,1);
+}
 
-  <!-- ══ NAVBAR ══ -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <span class="nav-nu">ν</span>BB
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#about">About</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#awards">Awards</a></li>
-        <li><a href="#mentorship">Mentorship</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon" id="themeIcon"></i>
-      </button>
-    </div>
-  </nav>
+[data-theme="dark"] {
+  --bg:           #0d0d18;
+  --bg-alt:       #111120;
+  --surface:      #161626;
+  --surface-2:    #1e1e30;
+  --border:       #2a2a40;
+  --text:         #e8e8f4;
+  --text-muted:   #8888aa;
+  --text-faint:   #555570;
+  --accent:       #6096e8;
+  --accent-mid:   #4a80d4;
+  --accent-light: #7ab2f0;
+  --nu-e:         #4a9eff;
+  --nu-mu:        #3dd68c;
+  --nu-tau:       #b57fff;
+  --gold:         #e8c84a;
+  --gold-light:   #f4e080;
+  --shadow:       0 2px 16px rgba(0,0,0,0.3);
+  --shadow-lg:    0 8px 40px rgba(0,0,0,0.5);
+}
 
-  <!-- ══ HERO ══ -->
-  <section id="hero">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        Ramanujan Fellow · IISc Bangalore
-      </div>
-      <h1 class="hero-name">Dr. Biswaranjan<br/><em>Behera</em></h1>
-      <p class="hero-tagline">
-        <span class="typed-text" id="typedText"></span><span class="typed-cursor">|</span>
-      </p>
-      <p class="hero-bio">
-        Experimental neutrino physicist probing the fundamental mysteries of matter — 
-        from cryogenic detector instrumentation to oscillation physics with 
-        <span class="highlight">DUNE</span>, <span class="highlight">ICARUS</span>, and <span class="highlight">SBND</span>.
-      </p>
-      <div class="hero-links">
-        <a href="mailto:biswaranjanb@iisc.ac.in" class="btn btn-primary">
-          <i class="fas fa-envelope"></i> Contact
-        </a>
-        <a href="#" class="btn btn-outline" id="cvDownload">
-          <i class="fas fa-file-pdf"></i> Download CV
-        </a>
-        <a href="https://scholar.google.com" target="_blank" class="btn btn-icon" aria-label="Google Scholar">
-          <i class="fas fa-graduation-cap"></i>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="btn btn-icon" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://inspire-hep.net" target="_blank" class="btn btn-icon" aria-label="INSPIRE HEP">
-          <i class="fas fa-atom"></i>
-        </a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">56+</span>
-          <span class="stat-label">Publications</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">3000+</span>
-          <span class="stat-label">Citations</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">23+</span>
-          <span class="stat-label">Students Mentored</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-number">4</span>
-          <span class="stat-label">Experiments</span>
-        </div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <!-- νIDEA logo inline SVG — fixes ellipse + dark mode issues -->
-      <!-- width=height + display:block ensures perfect circle, no stretching -->
-      <!-- All text colors use CSS classes so theme toggle works -->
-      <svg class="nuidea-logo-svg"
-           viewBox="0 0 480 480"
-           xmlns="http://www.w3.org/2000/svg"
-           role="img"
-           aria-label="νIDEA Logo">
-        <defs>
-          <linearGradient id="arcGHero" gradientUnits="userSpaceOnUse" x1="32" y1="240" x2="448" y2="240">
-            <stop offset="0%"   stop-color="#1a5fb8"/>
-            <stop offset="38%"  stop-color="#1a8a45"/>
-            <stop offset="72%"  stop-color="#7c3aed"/>
-            <stop offset="92%"  stop-color="#9090b0" stop-opacity="0.3"/>
-          </linearGradient>
-          <path id="halfCircleArcHero" d="M 118,222 A 122,122 0 0,1 362,222"/>
-        </defs>
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background var(--transition), color var(--transition);
+}
+a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
+a:hover { color: var(--accent-mid); }
+ul { list-style: none; }
+img { max-width: 100%; }
 
-        <!-- ══ OUTER COLOR ARC BORDER ══ -->
-        <circle cx="240" cy="240" r="210"
-          fill="none" stroke="url(#arcGHero)"
-          stroke-width="9" stroke-linecap="round"
-          stroke-dasharray="1112 210" stroke-dashoffset="60"/>
-        <!-- Unknown ν? dashed gap -->
-        <circle cx="240" cy="240" r="210"
-          fill="none" stroke="#9090b0"
-          stroke-width="5" stroke-linecap="round"
-          stroke-dasharray="12 15" stroke-dashoffset="-1050"
-          opacity="0.35"/>
+/* ── PARTICLE CANVAS ── */
+#particleCanvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
 
-        <!-- ══ OUTER SOLID THIN RING ══ -->
-        <circle cx="240" cy="240" r="196"
-          fill="none" class="logo-ring-outer"
-          stroke-width="1" opacity="0.5"/>
+/* ── CONTAINER ── */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
 
-        <!-- ══ INNER DASHED RING (fiducial) ══ -->
-        <circle cx="240" cy="240" r="166"
-          fill="none" class="logo-ring-inner"
-          stroke-width="1" stroke-dasharray="6 5" opacity="0.55"/>
+/* ── NAVBAR ── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+#navbar.scrolled {
+  background: var(--surface);
+  box-shadow: 0 1px 0 var(--border), var(--shadow);
+}
+.nav-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.nav-nu { color: var(--nu-e); font-style: italic; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all var(--transition);
+  white-space: nowrap;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.theme-toggle {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  width: 36px; height: 36px;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.nav-toggle {
+  display: none;
+  background: none; border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  margin-left: auto;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
 
-        <!-- ══ TAGLINE on arc ══ -->
-        <text font-size="8.5" letter-spacing="0.055em" font-family="Arial,sans-serif">
-          <textPath href="#halfCircleArcHero" startOffset="50%" text-anchor="middle">
-            <tspan class="logo-tagline-text">INSTRUMENTATION · DETECTOR · EXPERIMENT · ANALYSIS</tspan>
-          </textPath>
-        </text>
+/* ── SECTIONS ── */
+.section { padding: 96px 0; position: relative; z-index: 1; }
+.section-alt { background: var(--bg-alt); }
+.section-header {
+  margin-bottom: 56px;
+  text-align: center;
+}
+.section-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent-light);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.2;
+}
+.section-subtitle {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
 
-        <!-- ══ ν e μ τ R I N O ══ -->
-        <!-- All colors use CSS classes — theme-aware for both light & dark -->
-        <text x="240" y="221" text-anchor="middle"
-          font-size="13" font-weight="700"
-          font-family="Georgia,serif" letter-spacing="2">
-          <tspan class="logo-text-main" font-size="18">ν</tspan>
-          <tspan class="logo-nu-e">e</tspan>
-          <tspan class="logo-nu-mu">μ</tspan>
-          <tspan class="logo-nu-tau">τ</tspan>
-          <tspan class="logo-text-main" font-family="Arial,sans-serif">RINO</tspan>
-        </text>
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  border: none;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--accent-mid);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(26,58,110,0.3);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-1px);
+}
+.btn-icon {
+  background: var(--surface-2);
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  padding: 10px 14px;
+}
+.btn-icon:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
 
-        <!-- ══ OSCILLATION BRAID ══ -->
-        <!-- Dashed incoming stub -->
-        <line x1="96" y1="272" x2="124" y2="272"
-          class="logo-ring-inner" stroke-width="1.2"
-          stroke-dasharray="3 3" opacity="0.5"/>
-        <!-- Source vertex -->
-        <circle cx="128" cy="272" r="3" class="logo-dot-e"/>
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 4rem;
+  padding: calc(var(--nav-h) + 48px) 0 64px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+  position: relative;
+  z-index: 1;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: color-mix(in srgb, var(--nu-e) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--nu-e) 25%, transparent);
+  color: var(--nu-e);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.badge-dot {
+  width: 7px; height: 7px;
+  background: var(--nu-e);
+  border-radius: 50%;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.8); }
+}
+.hero-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+.hero-name em {
+  font-style: italic;
+  color: var(--accent);
+}
+.hero-tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--accent-light);
+  margin-bottom: 20px;
+  min-height: 1.4em;
+}
+.typed-cursor {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+.hero-bio {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  max-width: 520px;
+}
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+}
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.hero-stats {
+  display: flex;
+  gap: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 0;
+  box-shadow: var(--shadow);
+}
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 12px;
+}
+.stat-number {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.stat-divider {
+  width: 1px;
+  background: var(--border);
+  align-self: stretch;
+}
 
-        <!-- νe strand — blue -->
-        <path d="M128,272 C134,272 137,260 143,260 C149,260 152,284 158,284
-          C164,284 167,260 173,260 C179,260 182,284 188,284
-          C194,284 198,259 205,257 C212,255 218,278 228,282
-          C238,286 245,256 256,252 C267,248 274,278 287,282
-          C298,286 306,256 318,252 C328,248 337,272 348,274
-          C351,275 352,272 352,272"
-          fill="none" class="logo-strand-e" stroke-width="1.9" stroke-linecap="round"/>
+/* ── HERO VISUAL ── */
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-        <!-- νμ strand — green -->
-        <path d="M128,272 C134,272 137,284 143,284 C149,284 152,260 158,260
-          C164,260 167,284 173,284 C179,284 182,260 188,260
-          C194,260 198,285 205,286 C212,287 219,263 228,262
-          C237,261 244,284 255,288 C266,292 274,262 287,258
-          C298,254 307,282 319,286 C329,290 339,270 350,269
-          C352,268 352,272 352,272"
-          fill="none" class="logo-strand-mu" stroke-width="1.9" stroke-linecap="round"/>
+/*
+  KEY FIX for the ellipse problem:
+  - width and height must be EQUAL to keep it a circle
+  - display: block removes inline whitespace that causes stretching
+  - No wrapping div with border-radius — the SVG IS the logo
+*/
+.nuidea-logo-svg {
+  width: min(380px, 88vw);
+  height: min(380px, 88vw);
+  display: block;
+  filter: drop-shadow(0 8px 32px color-mix(in srgb, var(--accent) 15%, transparent));
+  transition: filter var(--transition);
+}
+.nuidea-logo-svg:hover {
+  filter: drop-shadow(0 12px 40px color-mix(in srgb, var(--accent) 25%, transparent));
+}
 
-        <!-- ντ strand — purple -->
-        <path d="M128,272 C135,272 138,272 145,272 C153,271 156,273 163,272
-          C171,271 175,276 183,275 C192,274 197,266 206,263
-          C216,260 223,278 234,282
-          C245,286 253,264 264,258 C276,252 285,278 298,283
-          C311,288 320,262 333,256 C344,250 348,269 352,272"
-          fill="none" class="logo-strand-tau" stroke-width="1.9" stroke-linecap="round"/>
+/* ── THEME-AWARE SVG CLASSES ── */
+/* Ring strokes */
+.logo-ring-outer { stroke: #1a1a3a; }
+[data-theme="dark"] .logo-ring-outer { stroke: #c0c0e0; }
 
-        <!-- Merge vertex -->
-        <circle cx="352" cy="272" r="2.8" class="logo-dot-e" opacity="0.6"/>
+.logo-ring-inner { stroke: #7070a0; }
+[data-theme="dark"] .logo-ring-inner { stroke: #5555aa; }
 
-        <!-- Single detected flavor -->
-        <path d="M352,272 C360,272 364,261 373,261 C382,261 385,282 392,278"
-          fill="none" class="logo-strand-tau" stroke-width="2.2" stroke-linecap="round"/>
+/* Tagline arc text */
+.logo-tagline-text { fill: #5a5a8a; }
+[data-theme="dark"] .logo-tagline-text { fill: #8888bb; }
 
-        <!-- ══ νIDEA LOGOTYPE ══ -->
-        <!-- ν always blue, IDEA uses theme-aware class (NOT hardcoded black) -->
-        <text x="240" y="362" text-anchor="middle">
-          <tspan fill="#1a5fb8"
-            font-size="58" font-weight="800"
-            font-family="Georgia,'Times New Roman',serif">ν</tspan><tspan
-            class="logo-idea-text"
-            dx="-4"
-            font-size="52" font-weight="800"
-            font-family="'Arial Black',Arial,sans-serif"
-            letter-spacing="1">IDEA</tspan>
-        </text>
-      </svg>
-    </div>
-    <div class="hero-scroll">
-      <span>Scroll to explore</span>
-      <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
-    </div>
-  </section>
+/* ν and RINO letters */
+.logo-text-main { fill: #1a1a3a; }
+[data-theme="dark"] .logo-text-main { fill: #e0e0f8; }
 
-  <!-- ══ NEWS TICKER ══ -->
-  <div class="news-bar" id="news">
-    <div class="news-label"><i class="fas fa-bolt"></i> Latest</div>
-    <div class="news-track-wrapper">
-      <div class="news-track" id="newsTrack">
-        <span class="news-item"><strong>Apr 2026</strong> — Featured in Fermilab News: DUNE collaborators advance breakthrough power-over-fiber technology</span>
-        <span class="news-sep">·</span>
-        <span class="news-item"><strong>Mar 2026</strong> — IISc Open Day 2026: CosmicWatch detector showcase with 3D-printed CMS/ATLAS models</span>
-        <span class="news-sep">·</span>
-        <span class="news-item"><strong>Feb 2026</strong> — Orissa Physical Society Young Scientist Award (Experiment) 2025</span>
-        <span class="news-sep">·</span>
-        <span class="news-item"><strong>Feb 2026</strong> — Bohr's Lecture at Fakir Mohan University: "The Secret Life of Ghost Particle"</span>
-        <span class="news-sep">·</span>
-        <span class="news-item"><strong>Jan 2026</strong> — TIPP 2026 talk: Power-over-Fiber Development for DUNE VD Photon Detection System</span>
-        <span class="news-sep">·</span>
-        <span class="news-item"><strong>2025</strong> — Ramanujan Fellowship awarded by ANRF, Government of India (2025–2030)</span>
-        <span class="news-sep">·</span>
-      </div>
-    </div>
-  </div>
+/* IDEA — the dark mode fix: was hardcoded black, now theme-aware */
+.logo-idea-text { fill: #0c0c1a; }
+[data-theme="dark"] .logo-idea-text { fill: #e8eaff; }
 
-  <!-- ══ ABOUT ══ -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">01 / About</span>
-        <h2>Chasing Ghost Particles</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="lead">
-            I am a <strong>Ramanujan Fellow</strong> at the Center for High Energy Physics (CHEP), 
-            Indian Institute of Science (IISc), Bangalore — one of India's most prestigious research fellowships.
-          </p>
-          <p>
-            My research spans the full spectrum of experimental neutrino physics: from developing cryogenic 
-            instrumentation and photon detection systems to precision measurements of neutrino oscillations and 
-            interactions. I am a Principal Investigator in the <strong>SBND</strong>, <strong>ICARUS</strong>, 
-            and <strong>DUNE</strong> collaborations at Fermilab.
-          </p>
-          <p>
-            A key focus of my current work is the pioneering development of <strong>Power-over-Fiber (PoF)</strong> 
-            technology — a breakthrough approach to powering electronics in harsh cryogenic environments, 
-            enabling next-generation photon detection for low-energy neutrino physics.
-          </p>
-          <p>
-            Beyond research, I am deeply committed to <strong>mentorship and outreach</strong>, 
-            having guided over 23 students across PhD, MSc, and undergraduate levels across four countries.
-          </p>
-          <a href="#contact" class="btn btn-primary" style="margin-top:1rem;">
-            <i class="fas fa-flask"></i> Collaborate With Me
-          </a>
-        </div>
-        <div class="about-interests">
-          <h3>Research Interests</h3>
-          <div class="interest-grid">
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-atom"></i></div>
-              <div>
-                <strong>Neutrino Oscillations</strong>
-                <span>CP violation, mass hierarchy, sterile neutrinos</span>
-              </div>
-            </div>
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-lightbulb"></i></div>
-              <div>
-                <strong>Photon Detection Systems</strong>
-                <span>SiPMs, PMTs, scintillation light in LArTPCs</span>
-              </div>
-            </div>
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-temperature-low"></i></div>
-              <div>
-                <strong>Cryogenic Instrumentation</strong>
-                <span>Power-over-Fiber, cryogenics R&D lab</span>
-              </div>
-            </div>
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-brain"></i></div>
-              <div>
-                <strong>Machine Learning in HEP</strong>
-                <span>Deep CNNs, event reconstruction, PID</span>
-              </div>
-            </div>
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-star"></i></div>
-              <div>
-                <strong>Supernova Neutrinos</strong>
-                <span>Core-collapse detection, low-energy physics</span>
-              </div>
-            </div>
-            <div class="interest-card">
-              <div class="interest-icon"><i class="fas fa-shield-alt"></i></div>
-              <div>
-                <strong>Cosmic Background Rejection</strong>
-                <span>CRT, TPC, PMT combined techniques</span>
-              </div>
-            </div>
-          </div>
-          <div class="affiliations">
-            <h3>Affiliated Experiments</h3>
-            <div class="exp-tags">
-              <span class="exp-tag dune">DUNE</span>
-              <span class="exp-tag icarus">ICARUS</span>
-              <span class="exp-tag sbnd">SBND</span>
-              <span class="exp-tag nova">NOvA</span>
-              <span class="exp-tag micro">MicroBooNE</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ── FLAVOR COLORS — light vs dark ── */
+/* Light mode: deep saturated (readable on white) */
+/* Dark mode:  bright vivid (readable on dark bg)  */
 
-  <!-- ══ EXPERIENCE TIMELINE ══ -->
-  <section id="experience" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">02 / Career</span>
-        <h2>Academic Journey</h2>
-      </div>
-      <div class="timeline">
+/* νe — blue */
+.logo-nu-e  { fill: #1a5fb8; }
+[data-theme="dark"] .logo-nu-e  { fill: #4a9eff; }
 
-        <div class="timeline-item" data-side="right">
-          <div class="timeline-dot current"></div>
-          <div class="timeline-card">
-            <div class="timeline-period current-period">Sep 2025 – Present</div>
-            <h3>Ramanujan Fellow</h3>
-            <h4><i class="fas fa-university"></i> Indian Institute of Science (IISc), Bangalore, India</h4>
-            <ul>
-              <li>Establishing cryogenics laboratory for Power-over-Fiber R&D for next-generation photon detection</li>
-              <li>Built CosmicWatch detector showcased at IISc Open Day 2026</li>
-              <li>PI in SBND, ICARUS, and DUNE collaborations; mentoring MSc & PhD students</li>
-            </ul>
-            <div class="card-tags">
-              <span>PoF Technology</span><span>Cryogenics Lab</span><span>PI</span>
-            </div>
-          </div>
-        </div>
+/* νμ — green */
+.logo-nu-mu { fill: #1a8a45; }
+[data-theme="dark"] .logo-nu-mu { fill: #3dd68c; }
 
-        <div class="timeline-item" data-side="left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-period">Mar 2024 – Sep 2025</div>
-            <h3>Postdoctoral Researcher</h3>
-            <h4><i class="fas fa-flask"></i> South Dakota School of Mines & Technology, USA</h4>
-            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. David A. Martinez Caicedo</p>
-            <ul>
-              <li>Key contributor in PoF technology R&D for DUNE Vertical Drift Photon Detection System</li>
-              <li>Led installation of PoF laser housing unit in ProtoDUNE-VD at CERN</li>
-              <li>Led fabrication of first production-style 8-channel Laser Housing Unit</li>
-              <li>Featured in Fermilab News for PoF technology breakthrough</li>
-            </ul>
-            <div class="card-tags">
-              <span>DUNE VD</span><span>ProtoDUNE-VD</span><span>CERN</span>
-            </div>
-          </div>
-        </div>
+/* ντ — purple */
+.logo-nu-tau { fill: #7c3aed; }
+[data-theme="dark"] .logo-nu-tau { fill: #b57fff; }
 
-        <div class="timeline-item" data-side="right">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-period">Sep 2022 – Mar 2024</div>
-            <h3>Adjunct Assistant Scientist</h3>
-            <h4><i class="fas fa-microscope"></i> University of Florida / Fermilab, USA</h4>
-            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. Heather Ray</p>
-            <ul>
-              <li>Novel SBND Time PRISM simulation — proposed combined stroboscopic method</li>
-              <li>Key contributor to PMT installation and commissioning of SBND detector (120 PMTs)</li>
-              <li>Characterizing SiPMs at room and cryogenic temperatures for DUNE PDS</li>
-            </ul>
-            <div class="card-tags">
-              <span>SBND</span><span>SiPM</span><span>Time PRISM</span>
-            </div>
-          </div>
-        </div>
+/* Strand strokes */
+.logo-strand-e   { stroke: #1a5fb8; }
+[data-theme="dark"] .logo-strand-e   { stroke: #4a9eff; }
 
-        <div class="timeline-item" data-side="left">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-period">Aug 2018 – Sep 2022</div>
-            <h3>Postdoctoral Researcher</h3>
-            <h4><i class="fas fa-atom"></i> Colorado State University / Fermilab, USA</h4>
-            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Mentor: Prof. Robert J. Wilson</p>
-            <ul>
-              <li><strong>First Run Coordinator</strong> for the ICARUS experiment at Fermilab</li>
-              <li>Led CRT installation, commissioning, and database architecture</li>
-              <li>Led cosmic background rejection — justified and secured overburden installation</li>
-              <li>Developed CRT hit/track reconstruction algorithms from scratch</li>
-            </ul>
-            <div class="card-tags">
-              <span>ICARUS</span><span>Run Coordinator</span><span>CRT</span>
-            </div>
-          </div>
-        </div>
+.logo-strand-mu  { stroke: #1a8a45; }
+[data-theme="dark"] .logo-strand-mu  { stroke: #3dd68c; }
 
-        <div class="timeline-item" data-side="right">
-          <div class="timeline-dot phd"></div>
-          <div class="timeline-card">
-            <div class="timeline-period">2015 – Oct 2018</div>
-            <h3>PhD in Physics</h3>
-            <h4><i class="fas fa-graduation-cap"></i> IIT Hyderabad / Fermilab, USA</h4>
-            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:0.5rem">Supervisors: Prof. Anjan K. Giri & Dr. Jonathan M. Paley</p>
-            <ul>
-              <li>Thesis: Double Differential Inclusive νμ CC Cross-section in the NOvA Near Detector</li>
-              <li>Developed deep CNN-based νμ CC selection, novel muon PID algorithm</li>
-              <li>NOvA DAQ software release manager; developed time-dependent calibration method</li>
-            </ul>
-            <div class="card-tags">
-              <span>NOvA</span><span>Deep Learning</span><span>Cross-section</span>
-            </div>
-          </div>
-        </div>
+.logo-strand-tau { stroke: #7c3aed; }
+[data-theme="dark"] .logo-strand-tau { stroke: #b57fff; }
 
-      </div>
-    </div>
-  </section>
+/* Vertex dots */
+.logo-dot-e  { fill: #1a5fb8; }
+[data-theme="dark"] .logo-dot-e  { fill: #4a9eff; }
+.hero-scroll {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-faint);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-top: 16px;
+}
+.scroll-arrow {
+  animation: bounce 2s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
 
-  <!-- ══ RESEARCH PROJECTS ══ -->
-  <section id="research" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">03 / Research</span>
-        <h2>Key Projects</h2>
-      </div>
-      <div class="projects-grid">
+/* ── NEWS BAR ── */
+.news-bar {
+  position: relative;
+  z-index: 1;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.news-label {
+  flex-shrink: 0;
+  background: rgba(255,255,255,0.15);
+  padding: 4px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.news-track-wrapper { overflow: hidden; flex: 1; }
+.news-track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  white-space: nowrap;
+  animation: news-scroll 40s linear infinite;
+}
+.news-item { font-size: 0.83rem; opacity: 0.92; }
+.news-sep { opacity: 0.5; font-size: 1.2rem; }
+@keyframes news-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.news-bar:hover .news-track { animation-play-state: paused; }
 
-        <div class="project-card featured">
-          <div class="project-icon"><i class="fas fa-broadcast-tower"></i></div>
-          <div class="project-tag">DUNE · Active</div>
-          <h3>Power-over-Fiber (PoF) Technology</h3>
-          <p>Pioneering development of PoF for DUNE Vertical Drift Photon Detection System — transmitting power optically via fiber to electronics in the cryogenic environment, eliminating electromagnetic interference and enabling next-generation low-energy neutrino detection.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> First production 8-channel LHU fabricated</span>
-            <span><i class="fas fa-check"></i> Installed & commissioned at CERN ProtoDUNE-VD</span>
-            <span><i class="fas fa-check"></i> Featured in Fermilab News</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.about-text .lead {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+  line-height: 1.65;
+}
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+.about-interests h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.interest-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.interest-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  transition: all var(--transition);
+}
+.interest-card:hover {
+  border-color: var(--accent-light);
+  box-shadow: var(--shadow);
+  transform: translateX(4px);
+}
+.interest-icon {
+  width: 32px; height: 32px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.interest-card div { display: flex; flex-direction: column; }
+.interest-card strong { font-size: 0.9rem; color: var(--text); }
+.interest-card span { font-size: 0.78rem; color: var(--text-muted); }
+.affiliations { margin-top: 8px; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.exp-tag {
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.exp-tag.dune { background: color-mix(in srgb, var(--nu-e) 12%, transparent); color: var(--nu-e); border: 1px solid color-mix(in srgb, var(--nu-e) 30%, transparent); }
+.exp-tag.icarus { background: color-mix(in srgb, var(--nu-tau) 12%, transparent); color: var(--nu-tau); border: 1px solid color-mix(in srgb, var(--nu-tau) 30%, transparent); }
+.exp-tag.sbnd { background: color-mix(in srgb, var(--nu-mu) 12%, transparent); color: var(--nu-mu); border: 1px solid color-mix(in srgb, var(--nu-mu) 30%, transparent); }
+.exp-tag.nova { background: color-mix(in srgb, var(--gold) 12%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent); }
+.exp-tag.micro { background: color-mix(in srgb, var(--text-muted) 10%, transparent); color: var(--text-muted); border: 1px solid var(--border); }
 
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-satellite-dish"></i></div>
-          <div class="project-tag">ICARUS · Completed</div>
-          <h3>Cosmic Background Rejection</h3>
-          <p>Developed comprehensive framework for cosmogenic background suppression using combined CRT-TPC-PMT timing methods. Led to Fermilab-approved concrete overburden installation, significantly enhancing detector sensitivity.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> First ICARUS Run Coordinator</span>
-            <span><i class="fas fa-check"></i> Overburden approval secured</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding: 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+  transform: translateX(-50%);
+}
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 0 48px 0;
+  position: relative;
+  width: 50%;
+}
+.timeline-item[data-side="left"] {
+  justify-content: flex-start;
+  margin-left: 50%;
+  padding-left: 48px;
+}
+.timeline-item[data-side="right"] {
+  padding-right: 48px;
+}
+.timeline-dot {
+  position: absolute;
+  right: -6px;
+  top: 20px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--border);
+  border: 2px solid var(--bg-alt);
+  z-index: 2;
+}
+.timeline-item[data-side="left"] .timeline-dot {
+  left: -6px; right: auto;
+}
+.timeline-dot.current {
+  background: var(--nu-e);
+  width: 14px; height: 14px;
+  right: -7px;
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--nu-e) 20%, transparent);
+}
+.timeline-dot.phd { background: var(--gold); }
+.timeline-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
+  box-shadow: var(--shadow);
+  transition: all var(--transition);
+  max-width: 480px;
+  width: 100%;
+}
+.timeline-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.timeline-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.current-period { color: var(--nu-e); }
+.timeline-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.timeline-card h4 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.timeline-card ul {
+  list-style: none;
+  margin-bottom: 14px;
+}
+.timeline-card ul li {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-left: 14px;
+  position: relative;
+  margin-bottom: 5px;
+}
+.timeline-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--accent-light);
+  font-size: 0.75rem;
+}
+.card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.card-tags span {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
 
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-wave-square"></i></div>
-          <div class="project-tag">DUNE · Active</div>
-          <h3>Pion & Muon Capture at Rest</h3>
-          <p>Feasibility study for detecting pion and muon capture-at-rest events in ProtoDUNE-VD. Proposed dedicated low-energy beam run at CERN SPS. Developing event selection and signal identification strategies.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> Feasibility demonstrated</span>
-            <span><i class="fas fa-check"></i> CERN SPS beam run proposed</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.project-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.project-card.featured {
+  border-color: var(--nu-e);
+  background: color-mix(in srgb, var(--nu-e) 4%, var(--surface));
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.project-icon {
+  width: 44px; height: 44px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+.project-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-light);
+  letter-spacing: 0.08em;
+}
+.project-card h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--text);
+}
+.project-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.project-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.project-highlights span {
+  font-size: 0.8rem;
+  color: var(--nu-mu);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+[data-theme="dark"] .project-highlights span { color: var(--nu-mu); }
+.project-link {
+  margin-top: auto;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap var(--transition);
+}
+.project-link:hover { gap: 10px; }
 
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-meteor"></i></div>
-          <div class="project-tag">DUNE · Completed</div>
-          <h3>Supernova Neutrino Calorimetry</h3>
-          <p>Developed calorimetric energy estimation using liquid argon scintillation light, demonstrating improved resolution for MeV-range supernova neutrinos. Key contribution to DUNE Technical Design Report.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> Featured in DUNE TDR</span>
-            <span><i class="fas fa-check"></i> 208+ citations</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── PUBLICATIONS ── */
+.pub-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.pub-filter {
+  padding: 6px 18px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+.pub-filter:hover, .pub-filter.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.pub-list { display: flex; flex-direction: column; gap: 12px; }
+.pub-item {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: all var(--transition);
+  align-items: start;
+}
+.pub-item:hover {
+  box-shadow: var(--shadow);
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+}
+.pub-item.hidden { display: none; }
+.pub-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pub-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+.pub-journal {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+}
+.pub-citations {
+  font-size: 0.75rem;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.pub-content h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+.pub-authors {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+.pub-ref {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.pub-contribution {
+  font-size: 0.78rem;
+  color: var(--accent-light);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  border-left: 2px solid var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 0 4px 4px 0;
+  line-height: 1.4;
+}
+.pub-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+.pub-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+.pub-link:hover { border-color: var(--accent); color: var(--accent); }
+.pub-more { text-align: center; margin-top: 32px; }
 
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-clock"></i></div>
-          <div class="project-tag">SBND · Completed</div>
-          <h3>SBND Time PRISM</h3>
-          <p>Proposed novel combined "stroboscopic" + SBND-PRISM method to select varying neutrino energy spectra from the same on-axis detector — a concept to validate in SBND before deploying at DUNE.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> Novel simulation demonstrated</span>
-            <span><i class="fas fa-check"></i> 120 PMTs installed</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── AWARDS ── */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.award-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.award-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--border);
+}
+.award-card.gold::before { background: linear-gradient(to right, var(--gold), var(--gold-light)); }
+.award-card.silver::before { background: linear-gradient(to right, #8899aa, #bbccdd); }
+.award-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+.award-year {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+.award-icon {
+  width: 48px; height: 48px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin: 0 auto 12px;
+}
+.award-card.gold .award-icon { background: color-mix(in srgb, var(--gold) 12%, transparent); color: var(--gold); }
+.award-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.award-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+.award-org {
+  display: inline-block;
+  font-size: 0.72rem;
+  color: var(--accent-light);
+  font-family: 'JetBrains Mono', monospace;
+}
+.award-desc {
+  margin-top: 8px;
+  font-size: 0.77rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
 
-        <div class="project-card">
-          <div class="project-icon"><i class="fas fa-chart-line"></i></div>
-          <div class="project-tag">NOvA · PhD Thesis</div>
-          <h3>νμ CC Cross-section Measurement</h3>
-          <p>Led first double-differential inclusive muon neutrino charged-current cross-section measurement in NOvA Near Detector using deep convolutional networks and novel muon PID, minimizing systematic uncertainties.</p>
-          <div class="project-highlights">
-            <span><i class="fas fa-check"></i> Deep CNN selection</span>
-            <span><i class="fas fa-check"></i> 34+ citations</span>
-          </div>
-          <a href="#publications" class="project-link">View Publications <i class="fas fa-arrow-right"></i></a>
-        </div>
+/* ── LEADERSHIP ── */
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.leadership-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.leadership-card:hover {
+  box-shadow: var(--shadow);
+  border-color: color-mix(in srgb, var(--accent) 25%, transparent);
+  transform: translateY(-2px);
+}
+.l-icon {
+  width: 40px; height: 40px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.leadership-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+.leadership-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+.l-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  margin-top: auto;
+}
 
-      </div>
-    </div>
-  </section>
+/* ── MENTORSHIP ── */
+.mentorship-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+.mentorship-stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.m-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.m-label { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.m-detail { font-size: 0.75rem; color: var(--text-faint); }
+.current-students { margin-bottom: 40px; }
+.current-students h3, .outreach-block h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+.student-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  transition: all var(--transition);
+}
+.student-item:hover { border-color: var(--accent-light); transform: translateX(4px); }
+.s-name { font-weight: 700; font-size: 0.9rem; color: var(--text); }
+.s-inst { font-size: 0.75rem; color: var(--accent-light); margin: 2px 0; }
+.s-topic { font-size: 0.78rem; color: var(--text-muted); }
+.outreach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+}
+.outreach-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+.outreach-item i {
+  color: var(--accent);
+  font-size: 1rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.outreach-item div { display: flex; flex-direction: column; gap: 2px; }
+.outreach-item strong { font-size: 0.88rem; color: var(--text); }
+.outreach-item span { font-size: 0.78rem; color: var(--text-muted); }
 
-  <!-- ══ PUBLICATIONS ══ -->
-  <section id="publications" class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">04 / Publications</span>
-        <h2>Selected Publications</h2>
-        <p class="section-subtitle">8 peer-reviewed journal papers with significant contributions · 12 proceedings · 48 collaboration papers</p>
-      </div>
+/* ── MEDIA / PRESS ── */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+.media-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all var(--transition);
+  color: var(--text);
+  position: relative;
+}
+.media-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.media-source {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--accent-light);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.media-date { font-size: 0.75rem; color: var(--text-faint); }
+.media-card h4 { font-size: 0.92rem; font-weight: 600; line-height: 1.4; color: var(--text); flex: 1; }
+.media-arrow {
+  align-self: flex-end;
+  color: var(--accent);
+  transition: transform var(--transition);
+}
+.media-card:hover .media-arrow { transform: translate(4px, -4px); }
 
-      <div class="pub-filters">
-        <button class="pub-filter active" data-filter="all">All</button>
-        <button class="pub-filter" data-filter="journal">Journals</button>
-        <button class="pub-filter" data-filter="dune">DUNE</button>
-        <button class="pub-filter" data-filter="icarus">ICARUS</button>
-        <button class="pub-filter" data-filter="nova">NOvA</button>
-      </div>
+/* ── CONTACT ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.contact-info { display: flex; flex-direction: column; gap: 24px; }
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.contact-icon {
+  width: 40px; height: 40px;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.contact-item strong { display: block; font-size: 0.85rem; margin-bottom: 4px; color: var(--text); }
+.contact-item span { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+.contact-item a { font-size: 0.9rem; color: var(--accent); }
+.contact-links-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.contact-links-row a {
+  font-size: 0.78rem;
+  color: var(--accent-light);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+  padding: 3px 10px;
+  border-radius: 6px;
+  transition: all var(--transition);
+}
+.contact-links-row a:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.contact-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+.contact-form h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  transition: border-color var(--transition);
+  outline: none;
+  resize: vertical;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+}
+.form-note { font-size: 0.72rem; color: var(--text-faint); margin-top: 10px; text-align: center; }
 
-      <div class="pub-list" id="pubList">
+/* ── FOOTER ── */
+#footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 48px 0 24px;
+  position: relative;
+  z-index: 1;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.footer-brand .footer-nu {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  color: var(--nu-e);
+  font-size: 1.4rem;
+}
+.footer-brand {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  flex: 1;
+}
+.footer-brand p { font-family: 'DM Sans', sans-serif; font-size: 0.8rem; color: var(--text-faint); margin-top: 2px; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 0.85rem; color: var(--text-muted); transition: color var(--transition); }
+.footer-links a:hover { color: var(--accent); }
+.footer-social { display: flex; gap: 10px; }
+.footer-social a {
+  width: 36px; height: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  transition: all var(--transition);
+}
+.footer-social a:hover { border-color: var(--accent); color: var(--accent); }
+.footer-bottom {
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+}
 
-        <div class="pub-item" data-category="journal">
-          <div class="pub-meta">
-            <span class="pub-year">2025</span>
-            <span class="pub-journal">JINST</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 5</span>
-          </div>
-          <div class="pub-content">
-            <h4>Design and Implementation of the Cosmic Ray Tagger System for the ICARUS detector at FNAL</h4>
-            <p class="pub-authors">A. Aduszkiewicz, L. Bagby, <strong>B. Behera</strong> et al. (ICARUS Collaboration)</p>
-            <p class="pub-ref">JINST 20 (2025) 04, T04002</p>
-            <div class="pub-contribution">
-              Led CRT installation, commissioning, first Run Coordinator, cosmic background rejection algorithms
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> JINST</a>
-            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
+/* ── SCROLL ANIMATIONS ── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-        <div class="pub-item" data-category="journal dune">
-          <div class="pub-meta">
-            <span class="pub-year">2024</span>
-            <span class="pub-journal">JINST</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 11</span>
-          </div>
-          <div class="pub-content">
-            <h4>Characterization and Novel Application of Power Over Fiber for Electronics in a Harsh Environment</h4>
-            <p class="pub-authors">M. A. Arroyavea, <strong>B. Behera</strong> et al.</p>
-            <p class="pub-ref">JINST 19 (2024) 10, P10019</p>
-            <div class="pub-contribution">
-              Led QA/QC protocols, laser characterization, OPC testing at cryogenic temperatures
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> JINST</a>
-            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  #hero {
+    grid-template-columns: 1fr;
+    padding-top: calc(var(--nav-h) + 32px);
+  }
+  .hero-visual { display: none; }
+  .hero-scroll { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .timeline::before { left: 16px; }
+  .timeline-item, .timeline-item[data-side="left"] {
+    width: 100%;
+    padding-left: 48px;
+    padding-right: 0;
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+  .timeline-dot, .timeline-item[data-side="left"] .timeline-dot {
+    left: 10px; right: auto;
+  }
+  .timeline-dot.current { left: 9px; }
+  .project-card.featured { grid-column: span 1; }
+  .mentorship-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
-        <div class="pub-item" data-category="journal icarus">
-          <div class="pub-meta">
-            <span class="pub-year">2023</span>
-            <span class="pub-journal">Eur.Phys.J.C</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 81</span>
-          </div>
-          <div class="pub-content">
-            <h4>ICARUS at the Fermi National Accelerator Laboratory Short-Baseline Neutrino Program: Initial Operation</h4>
-            <p class="pub-authors">P. Abratenko, <strong>B. Behera</strong> et al. (ICARUS Collaboration)</p>
-            <p class="pub-ref">Eur.Phys.J.C 83 (2023) 6, 467</p>
-            <div class="pub-contribution">
-              Cosmic background study, CRT side wall installation, channel mapping, hardware database
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> EPJC</a>
-            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
+@media (max-width: 720px) {
+  .section { padding: 64px 0; }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    gap: 2px;
+    box-shadow: var(--shadow-lg);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 10px 16px; border-radius: 8px; }
+  .nav-toggle { display: flex; }
+  .theme-toggle { margin-left: 0; }
+  .pub-item { grid-template-columns: 1fr; }
+  .pub-links { flex-direction: row; }
+  .mentorship-grid { grid-template-columns: 1fr 1fr; }
+  .hero-stats { flex-wrap: wrap; }
+  .stat-item { min-width: calc(50% - 1px); }
+}
 
-        <div class="pub-item" data-category="journal nova">
-          <div class="pub-meta">
-            <span class="pub-year">2023</span>
-            <span class="pub-journal">Phys.Rev.D</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 34</span>
-          </div>
-          <div class="pub-content">
-            <h4>Measurement of the Double-Differential Muon-neutrino Charged-Current Inclusive Cross Section in the NOvA Near Detector</h4>
-            <p class="pub-authors">M. A. Acero et al. (NOvA Collaboration)</p>
-            <p class="pub-ref">Phys.Rev.D 107 (2023) 5, 052011</p>
-            <div class="pub-contribution">
-              Led entire analysis — deep CNN selection, muon PID, flux calculation, background estimation (PhD thesis)
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> PRD</a>
-            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
-
-        <div class="pub-item" data-category="journal dune">
-          <div class="pub-meta">
-            <span class="pub-year">2021</span>
-            <span class="pub-journal">Eur.Phys.J.C</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 208</span>
-          </div>
-          <div class="pub-content">
-            <h4>Supernova Neutrino Burst Detection with the Deep Underground Neutrino Experiment</h4>
-            <p class="pub-authors">B. Abi et al. (DUNE Collaboration)</p>
-            <p class="pub-ref">Eur.Phys.J.C 81 (2021) 5, 423</p>
-            <div class="pub-contribution">
-              Developed calorimetric energy estimation for low-energy supernova neutrinos using scintillation light
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="#" class="pub-link"><i class="fas fa-external-link-alt"></i> EPJC</a>
-            <a href="#" class="pub-link"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
-
-        <div class="pub-item" data-category="journal dune">
-          <div class="pub-meta">
-            <span class="pub-year">2020</span>
-            <span class="pub-journal">JINST (TDR)</span>
-            <span class="pub-citations"><i class="fas fa-quote-right"></i> 865</span>
-          </div>
-          <div class="pub-content">
-            <h4>DUNE Far Detector Technical Design Report, Volume II</h4>
-            <p class="pub-authors">B. Abi et al. (DUNE Collaboration)</p>
-            <p class="pub-ref">arXiv: 2002.03005</p>
-            <div class="pub-contribution">
-              Algorithm for calorimetric energy estimation; improved energy resolution for supernova/solar neutrinos
-            </div>
-          </div>
-          <div class="pub-links">
-            <a href="https://arxiv.org/abs/2002.03005" class="pub-link" target="_blank"><i class="fas fa-file-alt"></i> arXiv</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="pub-more">
-        <a href="https://inspire-hep.net" target="_blank" class="btn btn-outline">
-          <i class="fas fa-external-link-alt"></i> Full Publication List on INSPIRE-HEP
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ AWARDS ══ -->
-  <section id="awards" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">05 / Recognition</span>
-        <h2>Awards & Honors</h2>
-      </div>
-      <div class="awards-grid">
-
-        <div class="award-card gold">
-          <div class="award-year">2025–2030</div>
-          <div class="award-icon"><i class="fas fa-medal"></i></div>
-          <h3>Ramanujan Fellowship</h3>
-          <p>Indian Institute of Science, Bangalore</p>
-          <span class="award-org">ANRF, Government of India</span>
-          <div class="award-desc">Prestigious 5-year research fellowship with independent funding for scientific research</div>
-        </div>
-
-        <div class="award-card silver">
-          <div class="award-year">2025/2026</div>
-          <div class="award-icon"><i class="fas fa-trophy"></i></div>
-          <h3>Young Scientist Award</h3>
-          <p>Experiment Category</p>
-          <span class="award-org">Orissa Physical Society</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2024</div>
-          <div class="award-icon"><i class="fas fa-star"></i></div>
-          <h3>EDIA Ambassador 2023</h3>
-          <p>Equity, Diversity, Inclusion & Accessibility</p>
-          <span class="award-org">Fermilab, USA</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2023–2024</div>
-          <div class="award-icon"><i class="fas fa-users"></i></div>
-          <h3>APS Career Mentoring Fellow</h3>
-          <p>Implicit bias & mentor training</p>
-          <span class="award-org">American Physical Society, USA</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2023</div>
-          <div class="award-icon"><i class="fas fa-dollar-sign"></i></div>
-          <h3>URA Visiting Scholars Program</h3>
-          <p>~$10,000 for PMT Commissioning at SBND</p>
-          <span class="award-org">URA, USA</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2018</div>
-          <div class="award-icon"><i class="fas fa-certificate"></i></div>
-          <h3>Certificate of Research Excellence</h3>
-          <p>Outstanding PhD research performance</p>
-          <span class="award-org">IIT Hyderabad, India</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2011</div>
-          <div class="award-icon"><i class="fas fa-award"></i></div>
-          <h3>Sabitri Memorial Gold Medal</h3>
-          <p>Best Graduate in Science</p>
-          <span class="award-org">Upendra Nath College, India</span>
-        </div>
-
-        <div class="award-card">
-          <div class="award-year">2015–2018</div>
-          <div class="award-icon"><i class="fas fa-globe"></i></div>
-          <h3>DST/DOE Research Scholar</h3>
-          <p>Indian Participation in Neutrino Experiments at Fermilab</p>
-          <span class="award-org">DST India / DOE USA</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ LEADERSHIP ══ -->
-  <section class="section section-alt" id="leadership">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">06 / Leadership</span>
-        <h2>Service & Leadership</h2>
-      </div>
-      <div class="leadership-grid">
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-gavel"></i></div>
-          <h3>Chair, Fermilab Users Meeting 2023</h3>
-          <p>Elected Chair of the Users Meeting Subcommittee. Organized the 56th Annual Fermilab Users Meeting 2023. Led engagement with U.S. Senate and House representatives to advocate for HEP research funding.</p>
-          <span class="l-period">2022 – 2023 · Fermilab Users Executive Committee</span>
-        </div>
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-running"></i></div>
-          <h3>First ICARUS Run Coordinator</h3>
-          <p>Appointed as the inaugural Run Coordinator for the ICARUS experiment. Coordinated daily operations during commissioning, CRT installation, and first beam data collection at Fermilab.</p>
-          <span class="l-period">Sep 2021 – Feb 2022 · ICARUS, Fermilab</span>
-        </div>
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-shield-alt"></i></div>
-          <h3>Cosmic Background Rejection Group Leader</h3>
-          <p>Founded and led the Cosmic Background Rejection group at ICARUS. Developed integrated CRT-TPC-PMT framework and justified the concrete overburden installation — approved by Fermilab leadership.</p>
-          <span class="l-period">Apr 2021 – Oct 2022 · ICARUS, Fermilab</span>
-        </div>
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-vote-yea"></i></div>
-          <h3>DUNE Engagement Committee (Elected)</h3>
-          <p>Elected by peers to represent early-career members of the DUNE Collaboration. Focused on maintaining engagement and development of all collaborators.</p>
-          <span class="l-period">Mar 2024 – May 2025 · DUNE Collaboration</span>
-        </div>
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-brain"></i></div>
-          <h3>Mental Health in HEP — Snowmass Co-convener</h3>
-          <p>Co-convener for the Snowmass "Birds of a Feather" discussion on Mental Health, Invisible Disabilities, and Neurodiversity in the high-energy physics community.</p>
-          <span class="l-period">Jul 2022 · Snowmass 2021 Summer Study</span>
-        </div>
-        <div class="leadership-card">
-          <div class="l-icon"><i class="fas fa-book-open"></i></div>
-          <h3>Peer Reviewer</h3>
-          <p>Active reviewer for Physical Review X Energy and Journal of Instrumentation (JINST), contributing to the scientific integrity of experimental physics publications.</p>
-          <span class="l-period">Oct 2024 – Present</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ MENTORSHIP ══ -->
-  <section id="mentorship" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">07 / Mentorship</span>
-        <h2>Teaching & Mentoring</h2>
-        <p class="section-subtitle">23+ students mentored across PhD, MSc, and undergraduate levels in India, USA and Europe</p>
-      </div>
-      <div class="mentorship-grid">
-        <div class="mentorship-stat">
-          <span class="m-number">5</span>
-          <span class="m-label">PhD / Graduate Students</span>
-          <span class="m-detail">thesis-level mentoring</span>
-        </div>
-        <div class="mentorship-stat">
-          <span class="m-number">9</span>
-          <span class="m-label">MSc Students</span>
-          <span class="m-detail">thesis supervision</span>
-        </div>
-        <div class="mentorship-stat">
-          <span class="m-number">9+</span>
-          <span class="m-label">Undergraduate Students</span>
-          <span class="m-detail">summer projects & internships</span>
-        </div>
-        <div class="mentorship-stat">
-          <span class="m-number">4</span>
-          <span class="m-label">Countries</span>
-          <span class="m-detail">India, USA, Germany, Colombia</span>
-        </div>
-      </div>
-      <div class="current-students">
-        <h3>Current Students (2025–2026)</h3>
-        <div class="student-list">
-          <div class="student-item">
-            <div class="s-name">Chayashree N</div>
-            <div class="s-inst">Central University of Karnataka</div>
-            <div class="s-topic">Low-Energy Neutrino Physics with LArTPC · PhD Co-supervisor</div>
-          </div>
-          <div class="student-item">
-            <div class="s-name">Siya Patil</div>
-            <div class="s-inst">BMS College of Engineering, Bengaluru</div>
-            <div class="s-topic">AI/ML in low-energy neutrino interaction reconstruction · DUNE</div>
-          </div>
-          <div class="student-item">
-            <div class="s-name">Salunke Dhanush</div>
-            <div class="s-inst">BMS College of Engineering, Bengaluru</div>
-            <div class="s-topic">Power-over-Fiber R&D & CosmicWatch detector · DUNE</div>
-          </div>
-          <div class="student-item">
-            <div class="s-name">Nihi Sarkar</div>
-            <div class="s-inst">IISc Bangalore</div>
-            <div class="s-topic">Diffused supernova neutrino background using water-based liquid scintillator</div>
-          </div>
-          <div class="student-item">
-            <div class="s-name">Dristii Patel</div>
-            <div class="s-inst">IISc Bangalore</div>
-            <div class="s-topic">Muon capture at rest signal selection at ProtoDUNE</div>
-          </div>
-          <div class="student-item">
-            <div class="s-name">Chandu Yasodar</div>
-            <div class="s-inst">IISER Tirupati</div>
-            <div class="s-topic">Nuclear de-excitation in argon using NucDeEx framework</div>
-          </div>
-        </div>
-      </div>
-      <div class="outreach-block">
-        <h3>Outreach Highlights</h3>
-        <div class="outreach-grid">
-          <div class="outreach-item">
-            <i class="fas fa-chalkboard-teacher"></i>
-            <div>
-              <strong>IISc Open Day 2026</strong>
-              <span>CosmicWatch + 3D-printed CMS/ATLAS detector demonstrations</span>
-            </div>
-          </div>
-          <div class="outreach-item">
-            <i class="fas fa-microphone"></i>
-            <div>
-              <strong>Neutrino Day 2024 at SURF</strong>
-              <span>Public engagement on DUNE physics</span>
-            </div>
-          </div>
-          <div class="outreach-item">
-            <i class="fas fa-school"></i>
-            <div>
-              <strong>PNW QuarkNet 2024</strong>
-              <span>Introductory neutrino lectures for high school teachers</span>
-            </div>
-          </div>
-          <div class="outreach-item">
-            <i class="fas fa-flask"></i>
-            <div>
-              <strong>Fermilab Ask A Scientist</strong>
-              <span>Regular volunteer 2016–2022</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ MEDIA ══ -->
-  <section class="section section-alt" id="media">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">08 / Press</span>
-        <h2>In The News</h2>
-      </div>
-      <div class="media-grid">
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">Fermilab News</div>
-          <div class="media-date">April 2026</div>
-          <h4>DUNE collaborators advance breakthrough power-over-fiber technology</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">University of Florida News</div>
-          <div class="media-date">March 2024</div>
-          <h4>UF Physics Assistant Scientist awarded EDIA Ambassador for 2023</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">Fermilab News</div>
-          <div class="media-date">July 2023</div>
-          <h4>The 56th Annual Fermilab Users Meeting: New ideas for future projects</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">Symmetry Magazine</div>
-          <div class="media-date">August 2019</div>
-          <h4>Physics in the eyes and ears of an artist</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">Colorado State University</div>
-          <div class="media-date">March 2021</div>
-          <h4>CSU Team Readies Massive Detector to Search for the Strangest Particle in the Universe</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-        <a href="#" class="media-card" target="_blank">
-          <div class="media-source">URA News</div>
-          <div class="media-date">March 2023</div>
-          <h4>High Energy Physics Community Visit Capitol Hill</h4>
-          <span class="media-arrow"><i class="fas fa-arrow-right"></i></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CONTACT ══ -->
-  <section id="contact" class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">09 / Contact</span>
-        <h2>Get In Touch</h2>
-        <p class="section-subtitle">Open to collaborations, student inquiries, and invited talks</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <strong>Email</strong>
-              <a href="mailto:biswaranjanb@iisc.ac.in">biswaranjanb@iisc.ac.in</a>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <strong>Address</strong>
-              <span>Center for High Energy Physics (CHEP)<br/>Indian Institute of Science<br/>Bangalore – 560012, Karnataka, India</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-graduation-cap"></i></div>
-            <div>
-              <strong>Academic Profiles</strong>
-              <div class="contact-links-row">
-                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
-                <a href="https://inspire-hep.net" target="_blank">INSPIRE-HEP</a>
-                <a href="https://orcid.org" target="_blank">ORCID</a>
-              </div>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-users"></i></div>
-            <div>
-              <strong>Collaborations</strong>
-              <span>DUNE · ICARUS · SBND · MicroBooNE</span>
-            </div>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <h3>Send a Message</h3>
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="your@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="subject">Subject</label>
-            <select id="subject">
-              <option value="">Select a topic...</option>
-              <option>Research Collaboration</option>
-              <option>PhD/Postdoc Inquiry</option>
-              <option>Invited Talk / Seminar</option>
-              <option>Media / Press</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width:100%">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-          <p class="form-note">* This is a static site. Message will open your email client.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ FOOTER ══ -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <span class="footer-nu">ν</span>IDEA Lab
-          <p>Center for High Energy Physics · IISc Bangalore</p>
-        </div>
-        <div class="footer-links">
-          <a href="#about">About</a>
-          <a href="#research">Research</a>
-          <a href="#publications">Publications</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer-social">
-          <a href="mailto:biswaranjanb@iisc.ac.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://scholar.google.com" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
-          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://inspire-hep.net" target="_blank" aria-label="INSPIRE-HEP"><i class="fas fa-atom"></i></a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Dr. Biswaranjan Behera · IISc Bangalore · Built with physics and precision</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+@media (max-width: 480px) {
+  .awards-grid { grid-template-columns: 1fr; }
+  .mentorship-grid { grid-template-columns: 1fr; }
+}
